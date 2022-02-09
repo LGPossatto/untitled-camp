@@ -1,0 +1,24 @@
+{
+  "name": "untitled-camp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "s": "nodemon ./dist/app.js",
+    "ws": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.15",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5"
+  }
+}
