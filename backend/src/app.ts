@@ -1,8 +1,11 @@
 import express from "express";
 
 import { PORT } from "./config/config";
+import { connectDB } from "./config/db";
 
 import productsRoutes from "./routes/productsRoutes";
+
+connectDB();
 const app = express();
 
 app.use(express.json());
