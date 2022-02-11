@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "s": "nodemon ./dist/app.js",
-    "ws": "tsc -w"
+    "w": "tsc -w"
   },
   "keywords": [],
   "author": "",

@@ -5,6 +5,7 @@ export interface statusInterface {
 
 export interface contentInterface {
   message: string;
+  payload?: any;
 }
 
 export type stantardResType = {

@@ -4,7 +4,7 @@ export const mockData = [
     price: 883.75,
     tag: "Trending",
     category: ["Mountain Bike"],
-    name: "cum sociis",
+    name: "Sociis",
     desc: "Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.",
     fetures: [
       "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.",

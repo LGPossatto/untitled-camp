@@ -23,5 +23,9 @@ export const createMessage: createMessageType = (status, content) => {
     msg.status.errorMsg = status.errorMsg;
   }
 
+  if (content.payload) {
+    msg.content.payload = content.payload;
+  }
+
   return msg;
 };
