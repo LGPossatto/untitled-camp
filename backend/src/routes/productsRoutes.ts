@@ -5,10 +5,14 @@ import {
   postProducts,
   putProduct,
 } from "../controllers/productsControllers";
+import { protectWithKey } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-router.route("/").get(getProducts).post(postProducts);
-router.route("/:id").put(putProduct).delete(deleteProduct);
+router.route("/").get(getProducts).post(protectWithKey, postProducts);
+router
+  .route("/:id")
+  .put(protectWithKey, putProduct)
+  .delete(protectWithKey, deleteProduct);
 
 export default router;

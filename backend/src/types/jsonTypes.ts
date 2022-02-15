@@ -1,14 +1,15 @@
 export interface statusInterface {
   ok: boolean;
-  errorMsg?: string;
+  errorMsg: string | null;
+  stack: string | null | undefined;
 }
 
 export interface contentInterface {
   message: string;
-  payload?: any;
+  payload: any;
 }
 
-export type stantardResType = {
+export type stantardJsonType = {
   status: statusInterface;
-  content: contentInterface;
+  content: contentInterface | null;
 };

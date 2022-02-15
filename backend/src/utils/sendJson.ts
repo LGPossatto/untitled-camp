@@ -1,32 +1,23 @@
 import { Response } from "express";
-
-import { createMessage } from "./createMessage";
+import { createJsonMsg } from "./createJsonMsg";
 
 export const sendJson = (
   res: Response,
   status: number,
   message: string,
-  errorMsg?: string,
-  payload?: any
+  payload: any
 ) => {
-  let ok: boolean;
-
-  if (status >= 0 && status < 400) {
-    ok = true;
-  } else {
-    ok = false;
-  }
-
-  const msg = createMessage({ ok, errorMsg }, { message, payload });
-
-  res.status(status).json(msg);
-};
-
-export const sendErrorJson = (res: Response, message: string) => {
-  const msg = createMessage(
-    { ok: false, errorMsg: "There is something wrong with the request." },
-    { message }
+  const msg = createJsonMsg(
+    {
+      ok: true,
+      errorMsg: null,
+      stack: null,
+    },
+    {
+      message: message,
+      payload,
+    }
   );
 
-  res.status(400).json(msg);
+  res.status(status).json(msg);
 };
