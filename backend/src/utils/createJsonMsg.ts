@@ -1,12 +1,17 @@
 import {
   contentInterface,
-  stantardJsonType,
+  jsonMsgType,
+  jsonTokenType,
   statusInterface,
 } from "../types/jsonTypes";
 
 export const createJsonMsg = (
   status: statusInterface,
   content: contentInterface | null
-): stantardJsonType => {
+): jsonMsgType => {
   return { status, content };
+};
+
+export const createJsonToken = ({ id, name, email }: jsonTokenType) => {
+  return { id, name, email };
 };

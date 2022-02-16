@@ -6,6 +6,7 @@ import { connectDB } from "./config/db";
 import { errorHandler } from "./middleware/errorMiddleware";
 
 import productsRoutes from "./routes/productsRoutes";
+import usersRoutes from "./routes/usersRoutes";
 
 connectDB();
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/products", productsRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use(errorHandler);
 

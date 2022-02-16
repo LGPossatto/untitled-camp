@@ -9,7 +9,15 @@ export interface contentInterface {
   payload: any;
 }
 
-export type stantardJsonType = {
+export type jsonMsgType = {
   status: statusInterface;
   content: contentInterface | null;
+};
+
+// ---------------------------------------------------------- //
+
+export type jsonTokenType = {
+  id: string;
+  name: string;
+  email: string;
 };
