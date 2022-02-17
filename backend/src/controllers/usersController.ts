@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 import { crudFunctionType } from "../types/crudTypes";
@@ -5,6 +6,7 @@ import { crudFunctionType } from "../types/crudTypes";
 import usersModel from "../models/usersModel";
 import { sendJson } from "../utils/sendJson";
 import { generateToken } from "../utils/generateToken";
+import { userType } from "../types/userTypes";
 
 // @desc    Login user
 // @route   GET /api/users/login
@@ -74,6 +76,51 @@ export const signupUser: crudFunctionType = async (req, res, next) => {
     } else {
       throw new Error("Invalid user data.");
     }
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc    Add product to user cart
+// @route   POST /api/users/cart/:productID
+// @access  Private
+export const addProduct: crudFunctionType = async (req, res, next) => {
+  try {
+    const { productID } = req.params;
+    const { id } = req.user;
+
+    const user = (await usersModel.findById(id)) as userType;
+
+    if (!user) {
+      res.status(401);
+      throw new Error("User not found.");
+    }
+
+    let updatedUser;
+    if (user.products.some((product) => product._id.toString() === productID)) {
+      // check if product exist
+      updatedUser = await usersModel.findByIdAndUpdate(
+        id,
+        { $inc: { "products.$[el].quant": 1 } },
+        {
+          arrayFilters: [{ "el._id": new mongoose.Types.ObjectId(productID) }],
+          new: true,
+        }
+      );
+    } else {
+      // if product don't exists ad one
+      updatedUser = await usersModel.findByIdAndUpdate(
+        id,
+        {
+          $push: {
+            products: { _id: new mongoose.Types.ObjectId(productID), quant: 1 },
+          },
+        },
+        { safe: true, upsert: true, new: true }
+      );
+    }
+
+    sendJson(res, 200, "Product added.", updatedUser);
   } catch (err) {
     next(err);
   }

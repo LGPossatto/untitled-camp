@@ -6,9 +6,17 @@ const usersSchema = new mongoose.Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     products: {
-      type: [mongoose.Schema.Types.ObjectId],
+      type: [
+        {
+          id: {
+            type: mongoose.Types.ObjectId,
+            required: true,
+            ref: "Products",
+          },
+          quant: { type: Number, required: true },
+        },
+      ],
       required: true,
-      ref: "Products",
     },
   },
   {

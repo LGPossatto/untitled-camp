@@ -12,12 +12,14 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
     const { page, category } = req.query;
 
     if (!page) {
+      res.status(400);
       throw new Error(
         "Please provide the query parameter 'page'. It need's to be a number and greater than 0."
       );
     }
 
     if (typeof page !== "string" || !parseInt(page) || parseInt(page) < 1) {
+      res.status(400);
       throw new Error("Page parameter must be a number and greater than 0.");
     }
 
@@ -48,6 +50,7 @@ export const postProducts: crudFunctionType = async (req, res, next) => {
     const { products } = req.body;
 
     if (!products || products.constructor !== Array || products.length < 1) {
+      res.status(400);
       throw new Error("Please, send the products array with the body.");
     }
 
@@ -68,6 +71,7 @@ export const putProduct: crudFunctionType = async (req, res, next) => {
     const { id } = req.params;
 
     if (!newProduct) {
+      res.status(400);
       throw new Error(
         "Please, send the fields to be updated with the parameter 'newProduct' inside the body."
       );
@@ -76,6 +80,7 @@ export const putProduct: crudFunctionType = async (req, res, next) => {
     const product = await productsModel.findById(id);
 
     if (!product) {
+      res.status(400);
       throw new Error("Product not found, ID doesn't exist.");
     }
 
@@ -100,6 +105,7 @@ export const deleteProduct: crudFunctionType = async (req, res, next) => {
     const product = await productsModel.findById(id);
 
     if (!product) {
+      res.status(400);
       throw new Error("Product not found, ID doesn't exist.");
     }
 
