@@ -2,17 +2,17 @@ import express from "express";
 import {
   deleteProduct,
   getProducts,
-  postProducts,
-  putProduct,
+  createProducts,
+  updateProduct,
 } from "../controllers/productsControllers";
 import { protectWithKey } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-router.route("/").get(getProducts).post(protectWithKey, postProducts);
+router.route("/").get(getProducts).post(protectWithKey, createProducts);
 router
   .route("/:id")
-  .put(protectWithKey, putProduct)
+  .put(protectWithKey, updateProduct)
   .delete(protectWithKey, deleteProduct);
 
 export default router;

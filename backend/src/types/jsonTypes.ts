@@ -1,3 +1,5 @@
+import { productsType } from "./productTypes";
+
 export interface statusInterface {
   ok: boolean;
   errorMsg: string | null;
@@ -16,8 +18,15 @@ export type jsonMsgType = {
 
 // ---------------------------------------------------------- //
 
+export type tokenType = {
+  id: string;
+  name: string;
+  email: string;
+};
+
 export type jsonTokenType = {
   id: string;
   name: string;
   email: string;
+  products: productsType[];
 };

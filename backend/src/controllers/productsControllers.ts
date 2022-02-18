@@ -45,7 +45,7 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
 // @desc    Create products
 // @route   POST /api/products
 // @access  Private
-export const postProducts: crudFunctionType = async (req, res, next) => {
+export const createProducts: crudFunctionType = async (req, res, next) => {
   try {
     const { products } = req.body;
 
@@ -65,7 +65,7 @@ export const postProducts: crudFunctionType = async (req, res, next) => {
 // @desc    Update product
 // @route   PUT /api/products/:id
 // @access  Private
-export const putProduct: crudFunctionType = async (req, res, next) => {
+export const updateProduct: crudFunctionType = async (req, res, next) => {
   try {
     const { newProduct } = req.body;
     const { id } = req.params;

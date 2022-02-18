@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema(
     products: {
       type: [
         {
-          id: {
+          product: {
             type: mongoose.Types.ObjectId,
             required: true,
             ref: "Products",
