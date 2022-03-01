@@ -1,0 +1,37 @@
+@import "./vars.scss";
+
+@mixin bp-big {
+  @media (max-width: $ss-big) {
+    @content;
+  }
+}
+
+@mixin bp-med {
+  @media (max-width: $ss-med) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media (max-width: $ss-small) {
+    @content;
+  }
+}
+
+@mixin bp-desktop-only {
+  @media (min-width: $ss-tablet + 1) {
+    @content;
+  }
+}
+
+@mixin bp-tablet {
+  @media (max-width: $ss-tablet) {
+    @content;
+  }
+}
+
+@mixin bp-mobile {
+  @media (max-width: $ss-mobile) {
+    @content;
+  }
+}

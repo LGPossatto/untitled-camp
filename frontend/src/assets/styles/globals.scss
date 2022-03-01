@@ -1,0 +1,148 @@
+@import "./vars.scss";
+@import "./breakpoints.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  color: $color-black;
+  font-family: $font-main;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+// ---------------------------------------------------------- //
+// ------------------------ HELPERS ------------------------- //
+// ---------------------------------------------------------- //
+
+// ---------------------- containment ----------------------- //
+.container {
+  max-width: 1920px;
+
+  margin: 0 auto;
+
+  @include bp-big {
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+  }
+
+  @include bp-tablet {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+}
+
+.hide-on-desktop {
+  @include bp-desktop-only {
+    display: none !important;
+  }
+}
+
+.hide-on-mobile {
+  @include bp-tablet {
+    display: none !important;
+  }
+}
+
+// ----------------------- alignment ------------------------ //
+.flex {
+  display: flex;
+
+  &-fw-w {
+    flex-wrap: wrap;
+  }
+
+  &-fd-c {
+    flex-direction: column;
+  }
+
+  &-1 {
+    flex: 1;
+  }
+}
+
+.jc {
+  &-c {
+    justify-content: center;
+  }
+
+  &-sb {
+    justify-content: space-between;
+  }
+
+  &-se {
+    justify-content: space-evenly;
+  }
+}
+
+.ai {
+  &-c {
+    align-items: center;
+  }
+}
+
+// -------------------------- text -------------------------- //
+.fs {
+  &-xl {
+    font-size: 3.2rem;
+  }
+
+  &-l {
+    font-size: 2.4rem;
+  }
+
+  &-m {
+    font-size: 1.6rem;
+  }
+
+  &-sm {
+    font-size: 1.2rem;
+  }
+
+  &-xsm {
+    font-size: 0.8rem;
+  }
+}
+
+.fw {
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-normal {
+    font-weight: 400;
+  }
+}
+
+.fc {
+  &-reverse {
+    color: $color-white;
+  }
+  &-gray {
+    color: $color-gray-dark;
+  }
+  &-success {
+    color: $color-success;
+  }
+}
