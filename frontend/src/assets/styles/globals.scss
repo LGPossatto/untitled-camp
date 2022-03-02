@@ -94,6 +94,10 @@ li {
   &-se {
     justify-content: space-evenly;
   }
+
+  &-end {
+    justify-content: flex-end;
+  }
 }
 
 .ai {

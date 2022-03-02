@@ -1,0 +1,14 @@
+.icon-link {
+  display: block;
+
+  width: max-content;
+  padding: 0.4rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+}
