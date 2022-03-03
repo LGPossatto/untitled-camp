@@ -1,0 +1,16 @@
+@import "../../../assets/styles/effects";
+
+.burg-btn {
+  position: relative;
+
+  button {
+    cursor: pointer;
+    display: block;
+
+    background-color: transparent;
+    padding: 0.4rem;
+    border: none;
+
+    @include hoverOpacity();
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../../assets/styles/vars";
+
+.burg-menu {
+  position: fixed;
+  z-index: 1;
+
+  background-color: $color-white;
+
+  min-width: 250px;
+  padding: 0.8rem;
+  margin-top: 0.4rem;
+  margin-left: 1.2rem;
+
+  border-radius: 0.4rem;
+
+  // burg animation ---------------
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.333s ease;
+
+  &-active {
+    visibility: visible;
+    opacity: 1;
+    max-height: 1000px;
+  }
+  // ------------------------------
+
+  &__arrow {
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+
+    width: 0;
+    height: 0;
+    border-top: 0.8rem solid transparent;
+    border-bottom: 0.8rem solid transparent;
+
+    border-left: 0.8rem solid $color-white;
+  }
+}

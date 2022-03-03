@@ -1,0 +1,9 @@
+@mixin hoverOpacity {
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+}

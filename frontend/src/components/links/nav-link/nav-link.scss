@@ -1,3 +1,5 @@
+@import "../../../assets/styles/effects";
+
 .nav-link {
   display: block;
 
@@ -5,11 +7,5 @@
   height: 100%;
   padding: 0.8rem;
 
-  &:hover {
-    opacity: 0.9;
-  }
-
-  &:active {
-    opacity: 0.75;
-  }
+  @include hoverOpacity();
 }
