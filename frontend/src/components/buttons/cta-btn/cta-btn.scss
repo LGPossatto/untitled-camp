@@ -1,0 +1,14 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/effects";
+
+.cta-btn {
+  cursor: pointer;
+  display: block;
+
+  padding: 2rem 4rem;
+
+  background-color: $color-accent;
+  border: none;
+
+  @include hoverOpacity();
+}
