@@ -1,0 +1,95 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/breakpoints";
+
+.footer {
+  background-color: $color-black;
+  padding: 4rem 0;
+
+  & > div {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    .nav-links {
+      li {
+        margin-left: 4rem;
+      }
+    }
+
+    .icon-link {
+      margin-left: 2rem;
+    }
+
+    p {
+      margin: 2rem 0;
+    }
+
+    span {
+      display: block;
+    }
+
+    @include bp-tablet {
+      grid-template-columns: 1fr;
+
+      .nav-links {
+        justify-content: flex-start;
+
+        li {
+          margin-right: 4rem;
+          margin-left: -0.8rem;
+        }
+      }
+
+      .footer__soc {
+        position: absolute;
+        bottom: -0.8rem;
+        right: 0;
+
+        .icon-link {
+          margin-right: 2rem;
+          margin-left: -0.4rem;
+        }
+      }
+
+      p {
+        margin: 0;
+      }
+
+      span {
+        margin-top: 2rem;
+      }
+    }
+
+    @include bp-mobile {
+      text-align: center;
+
+      .nav-links {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        li {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+
+      .footer__soc {
+        position: static;
+
+        justify-content: center;
+
+        .icon-link {
+          margin-right: 2rem;
+          margin-left: 2rem;
+        }
+      }
+
+      span {
+        margin-top: 0;
+      }
+    }
+  }
+}

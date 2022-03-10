@@ -110,6 +110,10 @@ p {
   &-c {
     align-items: center;
   }
+
+  &-end {
+    align-items: flex-end;
+  }
 }
 
 // -------------------------- text -------------------------- //

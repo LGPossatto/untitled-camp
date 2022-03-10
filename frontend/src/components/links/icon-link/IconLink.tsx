@@ -10,7 +10,7 @@ interface props {
   icon: IconProp;
 }
 
-export const IconBtn = ({ href, icon }: props) => {
+export const IconLink = ({ href, icon }: props) => {
   return (
     <Link to={href} className="icon-link fs-l fc-reverse">
       <FontAwesomeIcon icon={icon} />
