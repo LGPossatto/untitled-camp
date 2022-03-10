@@ -1,0 +1,14 @@
+@import "../../../assets/styles/breakpoints";
+
+.products-showcase {
+  max-width: 1000px;
+  margin: 4rem auto;
+
+  @include bp-mobile {
+    flex-direction: column;
+
+    .product-card {
+      margin: 1.2rem 0;
+    }
+  }
+}

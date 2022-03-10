@@ -5,12 +5,22 @@ import "./cta-btn.scss";
 interface props {
   onClick: MouseEventHandler<HTMLButtonElement>;
   responsive?: boolean;
+  small?: boolean;
+  color?: "black" | "transparent" | "color";
 }
 
-export const CtaBtn: FC<props> = ({ children, onClick, responsive }) => {
+export const CtaBtn: FC<props> = ({
+  children,
+  onClick,
+  responsive,
+  color = "color",
+  small = false,
+}) => {
   return (
     <button
-      className={`cta-btn fw-b ${responsive ? "fs-r-m" : "fs-m"}`}
+      className={`cta-btn fw-bold cta-btn-${color} ${
+        responsive ? "fs-r-m" : "fs-m"
+      } ${small ? "cta-btn-small" : ""}`}
       onClick={onClick}
     >
       {children}

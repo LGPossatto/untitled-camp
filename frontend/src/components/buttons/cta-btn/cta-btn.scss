@@ -7,8 +7,27 @@
 
   padding: 2rem 4rem;
 
-  background-color: $color-accent;
   border: none;
 
   @include hoverOpacity();
+
+  // btn size
+  &-small {
+    padding: 1rem 2rem;
+  }
+
+  // btn colors
+  &-color {
+    background-color: $color-accent;
+  }
+
+  &-black {
+    background-color: $color-black;
+  }
+
+  &-transparent {
+    background-color: transparent;
+
+    border: 0.2rem solid $color-black;
+  }
 }
