@@ -19,8 +19,8 @@ export const CtaBtn: FC<props> = ({
   return (
     <button
       className={`cta-btn fw-bold cta-btn-${color} ${
-        responsive ? "fs-r-m" : "fs-m"
-      } ${small ? "cta-btn-small" : ""}`}
+        color === "black" ? "fc-reverse" : ""
+      } ${responsive ? "fs-r-m" : "fs-m"} ${small ? "cta-btn-small" : ""}`}
       onClick={onClick}
     >
       {children}

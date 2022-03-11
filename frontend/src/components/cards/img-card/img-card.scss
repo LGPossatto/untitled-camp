@@ -1,0 +1,54 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/breakpoints";
+
+.img-card {
+  overflow: hidden;
+
+  max-width: 1000px;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+
+  border-radius: 0.8rem;
+
+  background-color: rgba($color-gray, 0.25);
+  background-image: linear-gradient(to right, $color-gray, $color-white);
+
+  &__info {
+    margin-left: 4rem;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+
+    width: 40%;
+    height: 100%;
+
+    border-radius: 0.8rem;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @include bp-mobile {
+    flex-direction: column;
+    align-items: flex-start;
+
+    height: auto;
+
+    &__info {
+      margin: 4rem 2rem;
+    }
+
+    &__img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}

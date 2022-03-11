@@ -1,0 +1,112 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/breakpoints";
+
+@mixin imgBackground {
+  display: block;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+  border: 0.2rem solid rgba($color-white, 0.25);
+}
+
+.product-card-big {
+  overflow: hidden;
+
+  max-width: 1000px;
+  width: 100%;
+  padding: 4rem 2rem;
+  margin: 0 auto;
+
+  border-radius: 0.8rem;
+
+  background-color: $color-accent-dark;
+
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: relative;
+      z-index: 1;
+
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .img-background {
+      @include imgBackground();
+
+      top: 50px;
+      width: 300px;
+      height: 300px;
+
+      &::after {
+        @include imgBackground();
+
+        content: "";
+
+        top: 25px;
+        width: 250px;
+        height: 250px;
+      }
+
+      &::before {
+        @include imgBackground();
+
+        content: "";
+
+        top: -125px;
+        width: 550px;
+        height: 550px;
+      }
+    }
+  }
+
+  &__info {
+    position: relative;
+    z-index: 1;
+
+    p {
+      max-width: 500px;
+      margin: 2rem 0 4rem;
+    }
+  }
+
+  @include bp-tablet {
+    flex-direction: column;
+
+    &__info {
+      text-align: center;
+
+      h2 {
+        margin-top: 4rem;
+      }
+
+      button {
+        margin: 0 auto;
+      }
+    }
+
+    .img-background {
+      top: -100px;
+      width: 500px;
+      height: 500px;
+
+      &::after {
+        top: 25px;
+        width: 450px;
+        height: 450px;
+      }
+
+      &::before {
+        top: -125px;
+        width: 750px;
+        height: 750px;
+      }
+    }
+  }
+}

@@ -9,6 +9,8 @@
 
   border: none;
 
+  white-space: nowrap;
+
   @include hoverOpacity();
 
   // btn size
