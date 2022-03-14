@@ -1,0 +1,72 @@
+@import "../../../assets/styles/breakpoints";
+
+.product-shop {
+  padding: 4rem 0;
+
+  &__img {
+    overflow: hidden;
+
+    max-width: 360px;
+    width: 360px;
+    max-height: 360px;
+    height: 360px;
+
+    margin: 4rem 4rem 2rem 0;
+
+    border-radius: 0.8rem;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    h2 {
+      margin: 1.2rem 0 2rem;
+    }
+
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+
+      margin-bottom: 4rem;
+    }
+
+    .info-btns {
+      > :first-child {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  @include bp-mobile {
+    > div {
+      flex-direction: column;
+
+      .product-shop__img {
+        width: 100%;
+        height: 100%;
+        margin: 4rem 0 2rem;
+      }
+
+      .price {
+        text-align: right;
+      }
+
+      .info-btns {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+
+        > :first-child {
+          margin-right: 0;
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}

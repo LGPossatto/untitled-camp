@@ -1,0 +1,30 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/effects";
+
+.count-btn {
+  overflow: hidden;
+  text-align: center;
+
+  border: 0.2rem solid $color-gray;
+  border-radius: 0.2rem;
+
+  &__minus,
+  &__num,
+  &__plus {
+    background-color: $color-gray-light;
+    padding: 0.8rem;
+  }
+
+  &__minus,
+  &__plus {
+    cursor: pointer;
+    border: none;
+
+    @include hoverOpacity();
+  }
+
+  &__num {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+}
