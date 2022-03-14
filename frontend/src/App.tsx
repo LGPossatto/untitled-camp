@@ -5,6 +5,7 @@ import { ProductsShowcase } from "./components/containers/products-showcase/Prod
 import { ProductCardBig } from "./components/cards/product-card-big/ProductCardBig";
 import { PromotionCard } from "./components/cards/promotion-card/PromotionCard";
 import { ImgCard } from "./components/cards/img-card/ImgCard";
+import { AboutUs } from "./components/containers/about-us/AboutUs";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <PromotionCard></PromotionCard>
         <ImgCard></ImgCard>
       </div>
+      <AboutUs></AboutUs>
       <Footer></Footer>
     </div>
   );
