@@ -49,7 +49,9 @@
       flex-direction: column;
 
       .product-shop__img {
+        max-width: none;
         width: 100%;
+        max-height: none;
         height: 100%;
         margin: 4rem 0 2rem;
       }

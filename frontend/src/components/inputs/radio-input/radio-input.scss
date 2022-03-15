@@ -1,0 +1,65 @@
+@import "../../../assets/styles/vars";
+
+.radio-input {
+  cursor: pointer;
+  position: relative;
+
+  padding: 1.2rem 1.6rem;
+  border: 0.2rem solid $color-gray;
+  border-radius: 0.4rem;
+
+  label {
+    margin-left: 0.8rem;
+  }
+
+  input {
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  // input checkbox overlay
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    top: 1.4rem;
+    left: 1.5rem;
+
+    width: 16px;
+    height: 16px;
+
+    border: 0.2rem solid $color-gray;
+  }
+
+  &::after {
+    top: 16px;
+    left: 18px;
+
+    width: 12px;
+    height: 12px;
+
+    opacity: 0;
+
+    background-image: url("../../../assets/icons/check.svg");
+    background-repeat: no-repeat;
+  }
+
+  &-active {
+    border-color: $color-success;
+
+    &::before {
+      background-color: $color-success;
+      border-color: $color-success-dark;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

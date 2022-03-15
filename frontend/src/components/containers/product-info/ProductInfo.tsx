@@ -20,14 +20,16 @@ export const ProductInfo = () => {
     <section className="product-info container flex jc-sb">
       <div className="product-info__features">
         <h2 className="fs-l">Fetures</h2>
-        {data.fetures.map((paragraph) => (
-          <p className="fs-m">{paragraph}</p>
+        {data.fetures.map((paragraph, i) => (
+          <p key={i} className="fs-m">
+            {paragraph}
+          </p>
         ))}
       </div>
       <div className="product-info__content">
         <h2 className="fs-l">In The Box</h2>
-        {data.content.map((paragraph) => (
-          <p className="p fs-m fc-accent fw-bold">
+        {data.content.map((paragraph, i) => (
+          <p key={i} className="p fs-m fc-accent fw-bold">
             {paragraph.quant}x <span className="fs-m">{paragraph.name}</span>
           </p>
         ))}

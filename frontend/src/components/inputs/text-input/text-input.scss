@@ -1,0 +1,38 @@
+@import "../../../assets/styles/vars";
+
+.text-input {
+  label {
+    margin-bottom: 0.8rem;
+  }
+
+  span {
+    margin-top: 0.4rem;
+  }
+
+  input {
+    padding: 1.2rem 1.6rem;
+
+    border: 0.2rem solid $color-gray;
+    border-radius: 0.4rem;
+
+    &::placeholder {
+      color: $color-gray;
+    }
+
+    &:focus {
+      outline: 0.2rem solid $color-gray-dark;
+    }
+  }
+
+  .error-input {
+    border-color: $color-accent;
+
+    &::placeholder {
+      color: $color-accent;
+    }
+
+    &:focus {
+      outline-color: $color-accent;
+    }
+  }
+}

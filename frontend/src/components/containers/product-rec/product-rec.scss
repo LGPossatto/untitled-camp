@@ -1,0 +1,14 @@
+@import "../../../assets/styles/breakpoints";
+
+.product-rec {
+  > h2 {
+    text-align: center;
+  }
+
+  @include bp-mobile {
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
