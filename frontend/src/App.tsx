@@ -14,6 +14,7 @@ import { ProductImgs } from "./components/containers/product-imgs/ProductImgs";
 import { ProductRec } from "./components/containers/product-rec/ProductRec";
 import { TextInput } from "./components/inputs/text-input/TextInput";
 import { RadioInput } from "./components/inputs/radio-input/RadioInput";
+import { Checkout } from "./components/containers/checkout/Checkout";
 
 function App() {
   const [value, setValue] = useState({
@@ -80,6 +81,7 @@ function App() {
         value="red"
         onChange={handlechange}
       ></RadioInput>
+      <Checkout></Checkout>
       <Footer></Footer>
     </div>
   );

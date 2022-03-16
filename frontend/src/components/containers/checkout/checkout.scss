@@ -1,0 +1,73 @@
+@import "../../../assets/styles/breakpoints";
+
+.checkout {
+  overflow: hidden;
+  padding: 4rem;
+
+  border-radius: 0.8rem;
+
+  > h2 {
+    margin-bottom: 4rem;
+  }
+
+  > div {
+    margin-bottom: 4rem;
+
+    > span {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__billing,
+  &__shipping,
+  &__payment {
+    > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__shipping > div > :first-child {
+    grid-column: span 2;
+  }
+
+  &__payment {
+    .radio-inputs {
+      grid-column: span 2;
+      width: calc(50% - 10px);
+
+      > h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      > div:last-child {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @include bp-mobile {
+    width: 95%;
+    padding: 4rem 1.2rem;
+
+    &__billing,
+    &__shipping,
+    &__payment {
+      > div {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__shipping > div > :first-child {
+      grid-column: span 1;
+    }
+
+    &__payment {
+      .radio-inputs {
+        grid-column: span 1;
+        width: 100%;
+      }
+    }
+  }
+}
