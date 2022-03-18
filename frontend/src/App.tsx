@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Nav } from "./components/basics/nav/Nav";
-import { Hero } from "./components/basics/hero/Hero";
+import { Hero } from "./components/containers/hero/Hero";
 import { Footer } from "./components/basics/footer/Footer";
 import { ProductsShowcase } from "./components/containers/products-showcase/ProductsShowcase";
 import { ProductCardBig } from "./components/cards/product-card-big/ProductCardBig";
@@ -15,6 +15,7 @@ import { ProductRec } from "./components/containers/product-rec/ProductRec";
 import { TextInput } from "./components/inputs/text-input/TextInput";
 import { RadioInput } from "./components/inputs/radio-input/RadioInput";
 import { Checkout } from "./components/containers/checkout/Checkout";
+import CartItems from "./components/containers/cart-items/CartItems";
 
 function App() {
   const [value, setValue] = useState({
@@ -82,6 +83,7 @@ function App() {
         onChange={handlechange}
       ></RadioInput>
       <Checkout></Checkout>
+      <CartItems></CartItems>
       <Footer></Footer>
     </div>
   );

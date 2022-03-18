@@ -1,0 +1,56 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/breakpoints";
+
+.cart-items {
+  overflow: hidden;
+
+  padding: 3.2rem;
+  border-radius: 0.4rem;
+  background-color: $color-white;
+
+  > h3 {
+    margin-bottom: 2.8rem;
+  }
+
+  > button {
+    margin-left: calc(100% - 205px);
+  }
+
+  &__sums {
+    p {
+      position: relative;
+
+      width: 100%;
+      margin-bottom: 1.2rem;
+
+      span {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    > :last-child {
+      margin-top: 2rem;
+      margin-bottom: 2.8rem;
+    }
+  }
+
+  &__products {
+    > div {
+      margin-bottom: 1.2rem;
+    }
+
+    > :last-child {
+      margin-bottom: 2.8rem;
+    }
+  }
+
+  @include bp-mobile {
+    padding: 3.2rem 1.2rem;
+
+    > button {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

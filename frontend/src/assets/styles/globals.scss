@@ -176,6 +176,9 @@ p {
 }
 
 .fc {
+  &-normal {
+    color: $color-black;
+  }
   &-reverse {
     color: $color-white;
   }

@@ -11,8 +11,11 @@
 
   border-radius: 0.8rem;
 
-  background-color: rgba($color-gray, 0.25);
-  background-image: linear-gradient(to right, $color-gray, $color-white);
+  background-image: linear-gradient(
+    to right,
+    rgba($color-black, 0.15),
+    $color-white
+  );
 
   &__info {
     margin-left: 4rem;
