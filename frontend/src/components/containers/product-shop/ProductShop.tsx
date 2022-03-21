@@ -1,18 +1,15 @@
-import { Link } from "react-router-dom";
-
 import productImg from "../../../assets/images/placeholder-1.jpg";
 
 import "./product-shop.scss";
 import { CountBtn } from "../../buttons/count-btn/CountBtn";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 import { Tag } from "../../visual-elements/tag/Tag";
+import { TextLink } from "../../links/text-link/TextLink";
 
 export const ProductShop = () => {
   return (
     <section className="product-shop container">
-      <Link to="/" className="fs-sm fc-gray-dark">
-        Go Back
-      </Link>
+      <TextLink link="/" text="Go Back"></TextLink>
       <div className="flex jc-sb ai-c">
         <div className="product-shop__img flex-1">
           <img src={productImg} alt="product" />

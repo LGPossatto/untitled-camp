@@ -1,10 +1,19 @@
 @import "../../../assets/styles/vars";
+@import "../../../assets/styles/breakpoints";
 
 .cart-item {
   &__name-price {
     margin-left: 1.2rem;
+    margin-right: 4rem;
 
     h4 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+
       margin-bottom: 0.4rem;
     }
 
@@ -37,6 +46,26 @@
   &__btns {
     > :last-child {
       margin-left: 1.6rem;
+    }
+  }
+
+  @include bp-mobile {
+    position: relative;
+
+    > div:first-child {
+      flex-direction: column;
+      align-items: baseline;
+    }
+
+    &__name-price {
+      margin-left: 0;
+      margin-top: 1.2rem;
+    }
+
+    &__btns {
+      position: absolute;
+      top: 12px;
+      right: 0;
     }
   }
 }

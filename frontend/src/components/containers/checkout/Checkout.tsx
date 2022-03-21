@@ -17,7 +17,7 @@ export const Checkout = () => {
 
   return (
     <form
-      className="checkout container"
+      className="checkout"
       onSubmit={(e) => handleSubmit(e, values, setValues)}
     >
       <h2 className="fs-xl">Checkout</h2>
@@ -119,7 +119,7 @@ export const Checkout = () => {
         </div>
       </div>
       <CtaBtn type="submit" onClick={() => {}}>
-        Confirm
+        {`Confirm & Buy`}
       </CtaBtn>
     </form>
   );

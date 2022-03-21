@@ -4,7 +4,7 @@ import "./cart-items.scss";
 import { CartItem } from "../../cards/cart-item/CartItem";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 
-const CartItems = () => {
+export const CartItems = () => {
   return (
     <section className="cart-items">
       <h3 className="fs-l">Summary</h3>
@@ -44,8 +44,7 @@ const CartItems = () => {
           <span className="fs-m fc-normal fc-accent fw-bold">$ ????.??</span>
         </p>
       </div>
-      <CtaBtn onClick={() => {}}>{"Continue & Pay"}</CtaBtn>
+      <CtaBtn onClick={() => {}}>{"Continue to Checkout"}</CtaBtn>
     </section>
   );
 };
-export default CartItems;

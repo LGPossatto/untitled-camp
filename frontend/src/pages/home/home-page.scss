@@ -1,0 +1,25 @@
+@import "../../assets/styles/breakpoints";
+
+.home-page {
+  &__products {
+    > h2 {
+      text-align: center;
+    }
+
+    margin: 8rem 0;
+  }
+
+  &__cards {
+    > div {
+      margin: 2.8rem auto;
+    }
+
+    @include bp-small {
+      margin: 2.8rem 2.5%;
+    }
+  }
+
+  &__about {
+    margin: 8rem 0;
+  }
+}
