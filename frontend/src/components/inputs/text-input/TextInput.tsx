@@ -5,7 +5,7 @@ interface props {
   name: string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: "text" | "number" | "email";
+  type?: "text" | "number" | "email" | "password";
   errorMsg?: string;
   placeholder?: string;
 }

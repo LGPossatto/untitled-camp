@@ -1,6 +1,8 @@
 @import "../../../assets/styles/vars";
 
 .text-input {
+  min-height: 96px;
+
   label {
     margin-bottom: 0.8rem;
   }
