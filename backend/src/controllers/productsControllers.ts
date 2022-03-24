@@ -36,6 +36,8 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
       .skip(productsSkip)
       .limit(9);
 
+    console.log("ok", products);
+
     sendJson(res, 200, `Page ${pageNum} products.`, products);
   } catch (err) {
     next(err);

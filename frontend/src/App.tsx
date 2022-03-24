@@ -1,4 +1,7 @@
+import { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+
+import { ProductsContext } from "./context/products/productsContext";
 
 import "./assets/styles/app.scss";
 import { Nav } from "./components/basics/nav/Nav";
@@ -13,6 +16,12 @@ import { ProductPage } from "./pages/product-page/ProductPage";
 import { CartPage } from "./pages/cart-page/CartPage";
 
 function App() {
+  const { text, getInitialProducts } = useContext(ProductsContext);
+
+  useEffect(() => {
+    getInitialProducts();
+  }, []);
+
   return (
     <main className="app flex flex-fd-c">
       <Nav></Nav>
