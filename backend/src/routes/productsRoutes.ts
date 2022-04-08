@@ -1,15 +1,18 @@
 import express from "express";
+
+import { protectWithKey } from "../middleware/authMiddleware";
 import {
   deleteProduct,
   getProducts,
   createProducts,
   updateProduct,
+  getRandomProducts,
 } from "../controllers/productsControllers";
-import { protectWithKey } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
 router.route("/").get(getProducts).post(protectWithKey, createProducts);
+router.route("/random").get(getRandomProducts);
 router
   .route("/:id")
   .put(protectWithKey, updateProduct)

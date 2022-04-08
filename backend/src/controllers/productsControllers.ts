@@ -44,6 +44,48 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
   }
 };
 
+// @desc    Get random products
+// @route   GET /api/products/random
+// @access  Public
+export const getRandomProducts: crudFunctionType = async (req, res, next) => {
+  try {
+    const { quant, category } = req.query;
+
+    if (!quant) {
+      res.status(400);
+      throw new Error(
+        "Please provide the query parameter 'quant'. It need's to be a number and between 1 and 20."
+      );
+    }
+
+    if (
+      typeof quant !== "string" ||
+      !parseInt(quant) ||
+      parseInt(quant) < 1 ||
+      parseInt(quant) > 20
+    ) {
+      res.status(400);
+      throw new Error(
+        "Quant parameter must be a number, greater than 0 and between 1 and 20."
+      );
+    }
+
+    const aggregateParams: any[] = [];
+
+    if (category && typeof category === "string") {
+      const formatedCategory = category.split("+").join(" ");
+      aggregateParams.push({ $match: { category: formatedCategory } });
+    }
+
+    aggregateParams.push({ $sample: { size: parseInt(quant) } });
+
+    const products = await productsModel.aggregate(aggregateParams);
+    sendJson(res, 200, `${quant} Random products.`, products);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // @desc    Create products
 // @route   POST /api/products
 // @access  Private
