@@ -1,4 +1,4 @@
-import placeholderImg from "../../../assets/images/placeholder-1.jpg";
+import placeholderImg from "../../../assets/images/placeholder-3.jpg";
 
 import "./about-us.scss";
 

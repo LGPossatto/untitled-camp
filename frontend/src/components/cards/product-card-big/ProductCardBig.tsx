@@ -1,4 +1,4 @@
-import productImg from "../../../assets/images/product-1.png";
+import cardImg from "../../../assets/images/card-2.png";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 import "./product-card-big.scss";
 
@@ -7,7 +7,7 @@ export const ProductCardBig = () => {
     <div className="product-card-big flex jc-sb ai-c">
       <div className="product-card-big__img flex-1 flex jc-c">
         <span className="img-background"></span>
-        <img src={productImg} alt="product" />
+        <img src={cardImg} alt="product" />
       </div>
       <div className="product-card-big__info flex-1">
         <h2 className="fs-l fc-reverse">Test asd</h2>
