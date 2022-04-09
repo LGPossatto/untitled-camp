@@ -1,25 +1,45 @@
 @import "../../assets/styles/breakpoints";
 
 .home-page {
-  &__products {
+  &__cards,
+  &__categories,
+  &__products,
+  &__about {
+    margin-top: 12rem;
+  }
+
+  &__products,
+  &__categories {
     > h2 {
       text-align: center;
     }
-
-    margin: 8rem 0;
   }
 
-  &__cards {
+  &__cards,
+  &__categories,
+  &__products {
     > div {
-      margin: 2.8rem auto;
+      margin: 3.2rem auto;
     }
 
     @include bp-small {
-      margin: 2.8rem 2.5%;
+      margin: 8rem 7.5%;
+    }
+
+    @include bp-mobile {
+      margin: 8rem 2.5%;
     }
   }
 
   &__about {
-    margin: 8rem 0;
+    margin-bottom: 12rem;
+
+    @include bp-small {
+      margin: 8rem 7.5%;
+    }
+
+    @include bp-mobile {
+      margin: 8rem 2.5%;
+    }
   }
 }

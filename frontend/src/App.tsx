@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { ProductsContext } from "./context/products/productsContext";
+import { ProductsContext } from "./context/products/ProductsContext";
 
 import "./assets/styles/app.scss";
 import { Nav } from "./components/basics/nav/Nav";
@@ -16,7 +16,7 @@ import { ProductPage } from "./pages/product-page/ProductPage";
 import { CartPage } from "./pages/cart-page/CartPage";
 
 function App() {
-  const { text, getInitialProducts } = useContext(ProductsContext);
+  const { getInitialProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     getInitialProducts();

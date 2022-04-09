@@ -3,7 +3,13 @@ import "./products-showcase.scss";
 
 export const ProductsShowcase = () => {
   return (
-    <section className="products-showcase flex jc-se ai-c">
+    <section className="products-showcase flex ai-c">
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
       <ProductCard></ProductCard>
       <ProductCard></ProductCard>
       <ProductCard></ProductCard>

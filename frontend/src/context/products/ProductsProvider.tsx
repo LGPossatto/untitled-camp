@@ -17,7 +17,7 @@ export const ProductsProvider: FC = ({ children }) => {
   };
 
   return (
-    <ProductsContext.Provider value={{ text: state.text, getInitialProducts }}>
+    <ProductsContext.Provider value={{ getInitialProducts }}>
       {children}
     </ProductsContext.Provider>
   );

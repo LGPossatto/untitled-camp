@@ -12,7 +12,7 @@ export const Nav = () => {
     <nav className="nav">
       <div className="container flex jc-sb ai-c">
         <BurgBtn classes="nav__burg hide-on-desktop"></BurgBtn>
-        <div className="nac__logo flex-1">
+        <div className="nav__logo flex-1">
           <Link to="/" className="fs-l fw-bold fc-reverse">
             untitled-camp
           </Link>

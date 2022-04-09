@@ -1,12 +1,36 @@
 @import "../../../assets/styles/breakpoints";
+@import "../../../assets/styles/effects";
 
 .products-showcase {
+  overflow: hidden;
+  overflow-x: scroll;
+
   max-width: 1000px;
   margin: 4rem auto;
 
-  @include bp-mobile {
-    flex-direction: column;
+  @include cardShadow();
 
+  // scrollbar --------------------- //
+  // firefox
+  scrollbar-color: $color-gray-dark $color-gray;
+  scrollbar-width: thin;
+
+  // chrome, edge, saffari
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-gray-dark;
+    border-radius: 16px;
+    border: 2px solid $color-gray-dark;
+  }
+
+  @include bp-mobile {
     .product-card {
       margin: 1.2rem 0;
     }

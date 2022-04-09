@@ -7,3 +7,16 @@
     opacity: 0.75;
   }
 }
+
+@mixin cardShadow {
+  border: 1px solid rgba($color-gray, 0.65);
+  box-shadow: 0 5px 15px rgba($color-gray, 0.5);
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba($color-gray, 0.6);
+  }
+
+  &:active {
+    box-shadow: 0 5px 15px rgba($color-gray, 0.7);
+  }
+}

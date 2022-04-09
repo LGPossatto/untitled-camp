@@ -1,7 +1,9 @@
 @import "../../../assets/styles/vars";
 @import "../../../assets/styles/breakpoints";
+@import "../../../assets/styles/effects";
 
 .img-card {
+  cursor: pointer;
   overflow: hidden;
 
   max-width: 1000px;
@@ -9,6 +11,7 @@
   height: 200px;
   margin: 0 auto;
 
+  @include cardShadow();
   border-radius: 0.8rem;
 
   background-image: linear-gradient(

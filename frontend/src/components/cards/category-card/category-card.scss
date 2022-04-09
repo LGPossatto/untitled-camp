@@ -1,0 +1,44 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/effects";
+
+.category-card {
+  cursor: pointer;
+  width: 100%;
+
+  padding: 1.2rem;
+
+  @include cardShadow();
+  border-radius: 0.4rem;
+
+  background-image: linear-gradient(
+    to top,
+    rgba($color-black, 0.15),
+    $color-white
+  );
+
+  text-align: center;
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba($color-black, 0.35);
+  }
+
+  &__img {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  > h3 {
+    margin: 1.2rem 0 0.4rem;
+
+    > span {
+      margin-left: 0.8rem;
+    }
+  }
+}

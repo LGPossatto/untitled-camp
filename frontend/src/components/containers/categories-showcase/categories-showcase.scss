@@ -1,0 +1,24 @@
+@import "../../../assets/styles/breakpoints";
+
+.categories-showcase {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  max-width: 1000px;
+  margin: 4rem auto;
+
+  @include bp-small {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+  }
+
+  @include bp-mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    .categories-card {
+      margin: 1.2rem 0;
+    }
+  }
+}
