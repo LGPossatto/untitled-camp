@@ -1,3 +1,5 @@
+@import "./vars";
+
 @mixin hoverOpacity {
   &:hover {
     opacity: 0.9;
@@ -8,9 +10,13 @@
   }
 }
 
-@mixin cardShadow {
+@mixin boxShadow {
   border: 1px solid rgba($color-gray, 0.65);
   box-shadow: 0 5px 15px rgba($color-gray, 0.5);
+}
+
+@mixin cardShadow {
+  @include boxShadow();
 
   &:hover {
     box-shadow: 0 5px 15px rgba($color-gray, 0.6);

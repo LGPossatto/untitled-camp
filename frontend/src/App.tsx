@@ -10,10 +10,11 @@ import { Footer } from "./components/basics/footer/Footer";
 import { LoginPage } from "./pages/login-page/LoginPage";
 import { SignupPage } from "./pages/signup-page/SignupPage";
 
-import { HomePage } from "./pages/home/HomePage";
+import { HomePage } from "./pages/home-page/HomePage";
 import { CheckoutPage } from "./pages/checkout-page/CheckoutPage";
 import { ProductPage } from "./pages/product-page/ProductPage";
 import { CartPage } from "./pages/cart-page/CartPage";
+import { ShopPage } from "./pages/shop-page/ShopPage";
 
 function App() {
   const { getInitialProducts } = useContext(ProductsContext);
@@ -36,6 +37,7 @@ function App() {
             element={<CheckoutPage></CheckoutPage>}
           ></Route>
           <Route path="/cart" element={<CartPage></CartPage>}></Route>
+          <Route path="/shop" element={<ShopPage></ShopPage>}></Route>
           <Route
             path="/products/:id"
             element={<ProductPage></ProductPage>}

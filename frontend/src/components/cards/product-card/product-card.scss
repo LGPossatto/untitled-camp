@@ -1,9 +1,16 @@
 @import "../../../assets/styles/vars";
+@import "../../../assets/styles/effects";
 
 .product-card {
-  width: 200px;
   min-width: 200px;
+  width: 200px;
   padding: 1.2rem;
+
+  &-stock {
+    width: 100%;
+    border-radius: 0.4rem;
+    @include boxShadow();
+  }
 
   &__img {
     overflow: hidden;

@@ -7,7 +7,6 @@ export const ProductRec = () => {
       <h2 className="fs-xl">You May Also Like</h2>
       <div className="">
         <ProductsShowcase></ProductsShowcase>
-        <ProductsShowcase></ProductsShowcase>
       </div>
     </section>
   );

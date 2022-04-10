@@ -3,9 +3,13 @@ import productImg from "../../../assets/images/product-1.png";
 import "./product-card.scss";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 
-export const ProductCard = () => {
+interface props {
+  stock?: boolean;
+}
+
+export const ProductCard = ({ stock = true }: props) => {
   return (
-    <div className="product-card">
+    <div className={`product-card ${stock ? "product-card-stock" : ""}`}>
       <div className="product-card__img">
         <img src={productImg} alt="product" />
       </div>

@@ -1,0 +1,13 @@
+.shop-page {
+  padding: 4rem 0 8rem;
+
+  &__adj {
+    margin-bottom: 8rem;
+  }
+
+  &__products {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

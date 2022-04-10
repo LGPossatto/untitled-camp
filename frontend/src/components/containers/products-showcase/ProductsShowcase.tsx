@@ -4,15 +4,15 @@ import "./products-showcase.scss";
 export const ProductsShowcase = () => {
   return (
     <section className="products-showcase flex ai-c">
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
+      <ProductCard stock={false}></ProductCard>
     </section>
   );
 };

@@ -13,7 +13,7 @@ export const Signup = () => {
   };
 
   return (
-    <form className="signin" onSubmit={(e) => handleSubmit(e, state, setState)}>
+    <form className="signup" onSubmit={(e) => handleSubmit(e, state, setState)}>
       <h2 className="fs-l">Create an Account</h2>
       <TextInput
         label="Name"
