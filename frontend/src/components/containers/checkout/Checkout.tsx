@@ -11,7 +11,7 @@ import { RadioInput } from "../../inputs/radio-input/RadioInput";
 export const Checkout = () => {
   const [state, setState] = useState<ICheckout>(checkoutValues);
 
-  const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
@@ -29,7 +29,7 @@ export const Checkout = () => {
             name="name"
             placeholder="John Doe"
             value={state.name}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.name}
           ></TextInput>
           <TextInput
@@ -37,7 +37,7 @@ export const Checkout = () => {
             name="email"
             placeholder="john@email.com"
             value={state.email}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.email}
           ></TextInput>
           <TextInput
@@ -45,7 +45,7 @@ export const Checkout = () => {
             name="phone"
             placeholder="+55 45 12345-6789"
             value={state.phone}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.phone}
           ></TextInput>
         </div>
@@ -58,7 +58,7 @@ export const Checkout = () => {
             name="adress"
             placeholder="Av. Random Place, 123"
             value={state.adress}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.adress}
           ></TextInput>
           <TextInput
@@ -66,7 +66,7 @@ export const Checkout = () => {
             name="city"
             placeholder="Foz do Iguaçu"
             value={state.city}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.city}
           ></TextInput>
           <TextInput
@@ -74,7 +74,7 @@ export const Checkout = () => {
             name="country"
             placeholder="Brazil"
             value={state.country}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.country}
           ></TextInput>
           <TextInput
@@ -82,7 +82,7 @@ export const Checkout = () => {
             name="zip"
             placeholder="12345-123"
             value={state.zip}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.zip}
           ></TextInput>
         </div>
@@ -97,7 +97,7 @@ export const Checkout = () => {
               label="e-Money"
               name="paymentMethod"
               value="e-money"
-              onChange={handlechange}
+              onChange={handleChange}
               active={state.paymentMethod === "e-money"}
             ></RadioInput>
             <RadioInput
@@ -105,7 +105,7 @@ export const Checkout = () => {
               label="Cash on Delivery"
               name="paymentMethod"
               value="cash"
-              onChange={handlechange}
+              onChange={handleChange}
               active={state.paymentMethod === "cash"}
             ></RadioInput>
           </div>
@@ -114,7 +114,7 @@ export const Checkout = () => {
             name="eNumber"
             placeholder="1234567890"
             value={state.eNumber}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.eNumber}
           ></TextInput>
           <TextInput
@@ -122,7 +122,7 @@ export const Checkout = () => {
             name="ePin"
             placeholder="12345"
             value={state.ePin}
-            onChange={handlechange}
+            onChange={handleChange}
             errorMsg={state.errorMsg.ePin}
           ></TextInput>
         </div>

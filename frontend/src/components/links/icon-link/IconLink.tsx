@@ -8,11 +8,12 @@ import "./icon-link.scss";
 interface props {
   href: string;
   icon: IconProp;
+  color?: "fc-normal" | "fc-reverse";
 }
 
-export const IconLink = ({ href, icon }: props) => {
+export const IconLink = ({ href, icon, color = "fc-reverse" }: props) => {
   return (
-    <Link to={href} className="icon-link fs-l fc-reverse">
+    <Link to={href} className={`icon-link fs-l ${color}`}>
       <FontAwesomeIcon icon={icon} />
     </Link>
   );

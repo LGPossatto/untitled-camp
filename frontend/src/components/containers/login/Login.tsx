@@ -9,7 +9,7 @@ import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 export const Login = () => {
   const [state, setState] = useState<ILogin>(loginValues);
 
-  const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
@@ -20,7 +20,7 @@ export const Login = () => {
         label="Email"
         name="email"
         value={state.email}
-        onChange={handlechange}
+        onChange={handleChange}
         placeholder="Your email"
         errorMsg={state.errorMsg.email}
       ></TextInput>
@@ -29,7 +29,7 @@ export const Login = () => {
         label="Password"
         name="password"
         value={state.password}
-        onChange={handlechange}
+        onChange={handleChange}
         placeholder="Your password"
         errorMsg={state.errorMsg.password}
       ></TextInput>

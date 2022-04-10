@@ -3,6 +3,10 @@
 .text-input {
   min-height: 96px;
 
+  .display-none {
+    display: none;
+  }
+
   label {
     margin-bottom: 0.8rem;
   }

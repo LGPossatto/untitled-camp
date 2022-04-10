@@ -8,7 +8,7 @@ import { handleSubmit, ISignin, signinValues } from "./utils";
 export const Signup = () => {
   const [state, setState] = useState<ISignin>(signinValues);
 
-  const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
@@ -20,7 +20,7 @@ export const Signup = () => {
         name="name"
         placeholder="Your name"
         value={state.name}
-        onChange={handlechange}
+        onChange={handleChange}
         errorMsg={state.errorMsg.name}
       ></TextInput>
       <TextInput
@@ -28,7 +28,7 @@ export const Signup = () => {
         name="email"
         placeholder="Your email"
         value={state.email}
-        onChange={handlechange}
+        onChange={handleChange}
         errorMsg={state.errorMsg.email}
       ></TextInput>
       <TextInput
@@ -37,7 +37,7 @@ export const Signup = () => {
         name="password"
         placeholder="Your password"
         value={state.password}
-        onChange={handlechange}
+        onChange={handleChange}
         errorMsg={state.errorMsg.password}
       ></TextInput>
       <TextInput
@@ -46,7 +46,7 @@ export const Signup = () => {
         name="confirmPassword"
         placeholder="Confirm password"
         value={state.confirmPassword}
-        onChange={handlechange}
+        onChange={handleChange}
         errorMsg={state.errorMsg.confirmPassword}
       ></TextInput>
       <CtaBtn type="submit" onClick={() => {}}>

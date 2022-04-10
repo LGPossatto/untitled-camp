@@ -1,27 +1,30 @@
 import "./text-input.scss";
 
 interface props {
-  label: string;
   name: string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
   type?: "text" | "number" | "email" | "password";
   errorMsg?: string;
   placeholder?: string;
 }
 
 export const TextInput = ({
-  label,
   name,
   value,
   onChange,
+  label = "",
   type = "text",
   placeholder = "",
   errorMsg = "",
 }: props) => {
   return (
     <div className="text-input flex flex-fd-c">
-      <label htmlFor={name} className="fs-m fw-bold">
+      <label
+        htmlFor={name}
+        className={`fs-m fw-bold ${!label ? "display-none" : ""}`}
+      >
         {label}
       </label>
       <input

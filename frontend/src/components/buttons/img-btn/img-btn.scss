@@ -8,7 +8,24 @@
   padding: 0.2rem;
 
   border: none;
+  border-radius: 0.4rem;
   background: none;
 
   @include hoverOpacity();
+
+  &-normal {
+    background-color: $color-black;
+  }
+
+  &-reverse {
+    background-color: $color-white;
+  }
+
+  &-accent {
+    background-color: $color-accent;
+  }
+
+  &-gray-dark {
+    background-color: $color-gray-dark;
+  }
 }

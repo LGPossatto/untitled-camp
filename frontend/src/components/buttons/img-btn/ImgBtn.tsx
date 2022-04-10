@@ -6,12 +6,22 @@ import "./img-btn.scss";
 interface props {
   img: IconDefinition;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  color?: "fc-normal" | "fc-reverse" | "fc-accent" | "fc-gray-dark";
+  background?: "normal" | "reverse" | "accent" | "gray-dark" | "transparent";
 }
 
-export const ImgBtn = ({ img, onClick }: props) => {
+export const ImgBtn = ({
+  img,
+  onClick,
+  color = "fc-gray-dark",
+  background = "transparent",
+}: props) => {
   return (
-    <button className="img-btn fs-l fc-reverse" onClick={onClick}>
-      <FontAwesomeIcon icon={img} className="fc-gray-dark" />
+    <button
+      className={`img-btn fs-l ${color} img-btn-${background}`}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={img} className="" />
     </button>
   );
 };
