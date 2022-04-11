@@ -29,14 +29,14 @@ function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/login" element={<LoginPage></LoginPage>}></Route>
-          <Route path="/signin" element={<SignupPage></SignupPage>}></Route>
+          <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
 
           <Route path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="/cart" element={<CartPage></CartPage>}></Route>
           <Route
             path="/checkout"
             element={<CheckoutPage></CheckoutPage>}
           ></Route>
-          <Route path="/cart" element={<CartPage></CartPage>}></Route>
           <Route path="/shop/:id" element={<ShopPage></ShopPage>}></Route>
           <Route
             path="/products/:id"

@@ -1,0 +1,6 @@
+export const userTypes = {
+  LOADING: "LOADING",
+  ERROR_MSG: "ERROR_MSG",
+  CLEAR_ERROR_MSG: "CLEAR_ERROR_MSG",
+  LOGIN_USER: "LOGIN_USER",
+};

@@ -1,5 +1,8 @@
-import { NavLink } from "../../links/nav-link/NavLink";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import "./nav-links.scss";
+import { NavLink } from "../../links/nav-link/NavLink";
 
 interface props {
   classes?: string;
@@ -8,6 +11,21 @@ interface props {
 }
 
 export const NavLinks = ({ classes, vertical, color }: props) => {
+  const { pathname: path } = useLocation();
+
+  useEffect(() => {
+    console.log(path);
+  }, [path]);
+
+  const accountLink = () => {
+    switch (path) {
+      case "/login":
+        return <NavLink href="/signup" text="Signup" color={color}></NavLink>;
+      default:
+        return <NavLink href="/login" text="Login" color={color}></NavLink>;
+    }
+  };
+
   return (
     <ul
       className={`nav-links ${classes ? classes : ""} ${
@@ -23,9 +41,7 @@ export const NavLinks = ({ classes, vertical, color }: props) => {
       <li>
         <NavLink href="/" text="Test" color={color}></NavLink>
       </li>
-      <li>
-        <NavLink href="/" text="Test" color={color}></NavLink>
-      </li>
+      <li>{accountLink()}</li>
     </ul>
   );
 };

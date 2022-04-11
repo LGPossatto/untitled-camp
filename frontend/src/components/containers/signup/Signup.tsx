@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+import { handleSubmit, ISignin, signinValues } from "./utils";
 
 import "./signup.scss";
 import { TextInput } from "../../inputs/text-input/TextInput";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
-import { handleSubmit, ISignin, signinValues } from "./utils";
 
 export const Signup = () => {
   const [state, setState] = useState<ISignin>(signinValues);
@@ -15,6 +17,10 @@ export const Signup = () => {
   return (
     <form className="signup" onSubmit={(e) => handleSubmit(e, state, setState)}>
       <h2 className="fs-l">Create an Account</h2>
+      <Link to="/login" className="fs-m fc-gray-dark fw-bold">
+        or login to your account
+      </Link>
+
       <TextInput
         label="Name"
         name="name"

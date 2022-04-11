@@ -19,7 +19,8 @@ export const loginValues = {
 export const handleSubmit = async (
   e: React.FormEvent<HTMLFormElement>,
   values: ILogin,
-  setValues: React.Dispatch<React.SetStateAction<ILogin>>
+  setValues: React.Dispatch<React.SetStateAction<ILogin>>,
+  loginUser: (email: string, password: string) => void
 ) => {
   e.preventDefault();
 
@@ -39,5 +40,7 @@ export const handleSubmit = async (
 
   setValues({ ...values, errorMsg: newErrorMsg });
 
-  console.log("ok");
+  if (!hasError) {
+    loginUser(values.email, values.password);
+  }
 };

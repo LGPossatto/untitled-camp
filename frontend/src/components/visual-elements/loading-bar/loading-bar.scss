@@ -1,0 +1,29 @@
+@import "../../../assets/styles/vars";
+
+@keyframes loadBar {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+.loading-bar {
+  width: 100%;
+  height: 0.6rem;
+
+  background-color: $color-gray;
+
+  .loading {
+    display: block;
+
+    width: 25%;
+    height: 100%;
+
+    border-radius: 0.2rem;
+
+    background-color: $color-gray-dark;
+    animation: loadBar 2s ease-in-out infinite alternate both;
+  }
+}
