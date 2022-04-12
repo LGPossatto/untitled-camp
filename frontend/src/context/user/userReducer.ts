@@ -1,4 +1,3 @@
-import { Action } from "history";
 import { IUser } from "./UserContext";
 import { userTypes } from "./userTypes";
 
@@ -20,6 +19,8 @@ export const userReducer = (
       //const clone = (({ b, c, ...o }) => o)(obj)
 
       return { ...state, user: user, cart: [...action.payload.products] };
+    case userTypes.LOGOUT_USER:
+      return { ...state, user: null };
     default:
       return state;
   }

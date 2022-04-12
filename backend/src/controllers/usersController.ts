@@ -66,12 +66,16 @@ export const signupUser: crudFunctionType = async (req, res, next) => {
     const salt = await bcrypt.genSalt();
     const encodedPassword = await bcrypt.hash(password, salt);
 
+    console.log(name, email, password);
+
     const newUser = await usersModel.create({
       name,
       email,
       password: encodedPassword,
       products: [],
     });
+
+    console.log(newUser);
 
     if (newUser) {
       const token = createJsonToken({

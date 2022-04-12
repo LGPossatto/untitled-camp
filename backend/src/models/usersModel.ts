@@ -11,6 +11,8 @@ const usersSchema = new mongoose.Schema(
           product: {
             type: mongoose.Types.ObjectId,
             required: true,
+            unique: true,
+            sparce: true,
             ref: "Products",
           },
           quant: { type: Number, required: true },

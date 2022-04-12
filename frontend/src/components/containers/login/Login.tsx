@@ -11,7 +11,7 @@ import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 
 export const Login = () => {
   const [state, setState] = useState<ILogin>(loginValues);
-  const { isLoading, loginUser } = useContext(UserContext);
+  const { isLoading, errorMsg, loginUser } = useContext(UserContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -44,6 +44,8 @@ export const Login = () => {
         placeholder="Your password"
         errorMsg={state.errorMsg.password}
       ></TextInput>
+
+      {errorMsg && <span className="fs-m fc-accent fw-bold">* {errorMsg}</span>}
 
       <CtaBtn type="submit" onClick={() => {}}>
         Confirm

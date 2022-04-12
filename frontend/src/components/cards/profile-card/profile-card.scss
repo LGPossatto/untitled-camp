@@ -1,0 +1,18 @@
+@import "../../../assets/styles/effects";
+
+.profile-card {
+  width: 100%;
+  padding: 3.2rem;
+
+  border-radius: 0.4rem;
+
+  @include boxShadow();
+
+  > h4 {
+    margin: 2rem 0;
+
+    > span {
+      font-weight: 400;
+    }
+  }
+}

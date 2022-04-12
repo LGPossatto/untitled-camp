@@ -26,9 +26,9 @@ export const UserProvider: FC = ({ children }) => {
     });
 
     const data = await res.json();
-    console.log(data);
 
     if (data.status.ok) {
+      dispatch({ type: userTypes.CLEAR_ERROR_MSG });
       dispatch({ type: userTypes.LOGIN_USER, payload: data.content.payload });
     } else {
       dispatch({ type: userTypes.ERROR_MSG, payload: data.status.errorMsg });
@@ -37,12 +37,42 @@ export const UserProvider: FC = ({ children }) => {
     dispatchLogin();
   };
 
+  const createUser = async (name: string, email: string, password: string) => {
+    dispatchLogin();
+    const res = await fetch(`${serverUrl}users/signup`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (data.status.ok) {
+      dispatch({ type: userTypes.CLEAR_ERROR_MSG });
+      dispatch({ type: userTypes.LOGIN_USER, payload: data.content.payload });
+    } else {
+      dispatch({ type: userTypes.ERROR_MSG, payload: data.status.errorMsg });
+    }
+
+    dispatchLogin();
+  };
+
+  const logoutUser = () => {
+    dispatch({ type: userTypes.LOGOUT_USER });
+  };
+
   const value = {
     isLoading: state.isLoading,
-    errorMsg: null,
+    errorMsg: state.errorMsg,
     user: state.user,
     cart: state.cart,
     loginUser,
+    logoutUser,
+    createUser,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

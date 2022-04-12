@@ -29,7 +29,8 @@ export const signinValues = {
 export const handleSubmit = async (
   e: React.FormEvent<HTMLFormElement>,
   values: ISignin,
-  setValues: React.Dispatch<React.SetStateAction<ISignin>>
+  setValues: React.Dispatch<React.SetStateAction<ISignin>>,
+  createUser: (name: string, email: string, password: string) => void
 ) => {
   e.preventDefault();
 
@@ -48,15 +49,19 @@ export const handleSubmit = async (
   }
 
   if (values.password !== values.confirmPassword) {
+    hasError = true;
     newErrorMsg.password = "Passwords must be equals";
     newErrorMsg.confirmPassword = "Passwords must be equals";
   }
 
   if (!emailRegex.test(values.email)) {
+    hasError = true;
     newErrorMsg.email = "Please provide a valid email";
   }
 
   setValues({ ...values, errorMsg: newErrorMsg });
 
-  console.log("ok");
+  if (!hasError) {
+    createUser(values.name, values.email, values.password);
+  }
 };

@@ -24,6 +24,8 @@ export interface IUser {
     quant: number;
   }[];
   loginUser: (email: string, password: string) => void;
+  createUser: (name: string, email: string, password: string) => void;
+  logoutUser: () => void;
 }
 
 export const initialState = {
@@ -32,6 +34,8 @@ export const initialState = {
   user: null,
   cart: [],
   loginUser: (email: string, password: string) => {},
+  createUser: (name: string, email: string, password: string) => {},
+  logoutUser: () => {},
 };
 
 export const UserContext = createContext<IUser>(initialState);

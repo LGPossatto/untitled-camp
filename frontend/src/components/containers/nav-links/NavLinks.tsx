@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useContext } from "react";
 import { useLocation } from "react-router-dom";
+
+import { UserContext } from "../../../context/user/UserContext";
 
 import "./nav-links.scss";
 import { NavLink } from "../../links/nav-link/NavLink";
@@ -11,11 +13,8 @@ interface props {
 }
 
 export const NavLinks = ({ classes, vertical, color }: props) => {
+  const { user } = useContext(UserContext);
   const { pathname: path } = useLocation();
-
-  useEffect(() => {
-    console.log(path);
-  }, [path]);
 
   const accountLink = () => {
     switch (path) {
@@ -41,7 +40,13 @@ export const NavLinks = ({ classes, vertical, color }: props) => {
       <li>
         <NavLink href="/" text="Test" color={color}></NavLink>
       </li>
-      <li>{accountLink()}</li>
+      <li>
+        {user ? (
+          <NavLink href="/profile" text="Profile" color={color}></NavLink>
+        ) : (
+          accountLink()
+        )}
+      </li>
     </ul>
   );
 };

@@ -1,0 +1,14 @@
+@import "../../assets/styles/breakpoints";
+
+.profile-page {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+
+  > :first-child {
+    width: 480px;
+
+    @include bp-mobile {
+      width: auto;
+    }
+  }
+}
