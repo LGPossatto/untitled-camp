@@ -1,0 +1,15 @@
+.about-page {
+  height: 100%;
+
+  h1 {
+    margin: 8rem 0 2rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  &:last-child {
+    margin-bottom: 10rem;
+  }
+}

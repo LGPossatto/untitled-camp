@@ -13,6 +13,14 @@ export const UserProvider: FC = ({ children }) => {
     dispatch({ type: userTypes.LOADING });
   };
 
+  const getLocalUser = () => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      dispatch({ type: userTypes.LOGIN_USER, payload: JSON.parse(user) });
+    }
+  };
+
   const loginUser = async (email: string, password: string) => {
     dispatchLogin();
 
@@ -49,7 +57,6 @@ export const UserProvider: FC = ({ children }) => {
     });
 
     const data = await res.json();
-    console.log(data);
 
     if (data.status.ok) {
       dispatch({ type: userTypes.CLEAR_ERROR_MSG });
@@ -73,6 +80,7 @@ export const UserProvider: FC = ({ children }) => {
     loginUser,
     logoutUser,
     createUser,
+    getLocalUser,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

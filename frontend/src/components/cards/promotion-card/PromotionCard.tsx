@@ -1,4 +1,4 @@
-import productImg from "../../../assets/images/product-2.png";
+import productImg from "../../../assets/images/product-3.png";
 
 import "./promotion-card.scss";
 

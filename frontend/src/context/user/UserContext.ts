@@ -26,6 +26,7 @@ export interface IUser {
   loginUser: (email: string, password: string) => void;
   createUser: (name: string, email: string, password: string) => void;
   logoutUser: () => void;
+  getLocalUser: () => void;
 }
 
 export const initialState = {
@@ -36,6 +37,7 @@ export const initialState = {
   loginUser: (email: string, password: string) => {},
   createUser: (name: string, email: string, password: string) => {},
   logoutUser: () => {},
+  getLocalUser: () => {},
 };
 
 export const UserContext = createContext<IUser>(initialState);

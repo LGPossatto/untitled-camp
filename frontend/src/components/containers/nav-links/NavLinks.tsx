@@ -32,13 +32,13 @@ export const NavLinks = ({ classes, vertical, color }: props) => {
       }`}
     >
       <li>
-        <NavLink href="/" text="Test" color={color}></NavLink>
+        <NavLink href="/" text="Home" color={color}></NavLink>
       </li>
       <li>
-        <NavLink href="/" text="Test" color={color}></NavLink>
+        <NavLink href="/shop/1" text="Shop" color={color}></NavLink>
       </li>
       <li>
-        <NavLink href="/" text="Test" color={color}></NavLink>
+        <NavLink href="/about" text="About" color={color}></NavLink>
       </li>
       <li>
         {user ? (

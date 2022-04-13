@@ -2,12 +2,21 @@
 @import "../../../assets/styles/effects";
 
 .signup {
+  overflow: hidden;
+  position: relative;
+
   padding: 4rem;
   border-radius: 0.8rem;
 
   background-color: $color-white;
 
   @include boxShadow();
+
+  .loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   > a {
     display: block;
@@ -19,6 +28,11 @@
 
   > div:not(:last-child) {
     margin-bottom: 1.2rem;
+  }
+
+  > span {
+    display: block;
+    margin-bottom: -3rem;
   }
 
   > button {

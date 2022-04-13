@@ -16,9 +16,9 @@ export const userReducer = (
       const user = { ...action.payload };
       delete user["products"];
 
-      //const clone = (({ b, c, ...o }) => o)(obj)
+      localStorage.setItem("user", JSON.stringify(action.payload));
 
-      return { ...state, user: user, cart: [...action.payload.products] };
+      return { ...state, user, cart: [...action.payload.products] };
     case userTypes.LOGOUT_USER:
       return { ...state, user: null };
     default:

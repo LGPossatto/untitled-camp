@@ -19,7 +19,7 @@ export const Nav = () => {
         </div>
         <NavLinks classes="flex-1 hide-on-mobile" color="fc-reverse"></NavLinks>
         <div className="flex-1 flex jc-end">
-          <IconLink href="/" icon={faCartShopping}></IconLink>
+          <IconLink href="/cart" icon={faCartShopping}></IconLink>
         </div>
         <span className="nav__border"></span>
       </div>
