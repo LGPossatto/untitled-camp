@@ -5,37 +5,6 @@
 .shop-page {
   padding: 4rem 0 8rem;
 
-  &__adj {
-    max-width: 1000px;
-    margin: 0 auto;
-
-    button {
-      width: max-content;
-      height: max-content;
-      margin-left: 1.2rem;
-      padding: 0.8rem;
-    }
-  }
-
-  &__cat {
-    margin: -4rem 0 4rem;
-
-    .radio-input {
-      white-space: nowrap;
-      margin-right: 2rem;
-      margin-top: 2rem;
-    }
-
-    @include bp-mobile {
-      justify-content: space-between;
-
-      .radio-input {
-        margin-right: 0.4rem;
-        margin-left: 0.4rem;
-      }
-    }
-  }
-
   &__products {
     display: grid;
     gap: 2rem;
@@ -53,18 +22,6 @@
     // irregular breakpoint 2
     @media only screen and (max-width: 450px) {
       grid-template-columns: repeat(1, 1fr);
-    }
-  }
-
-  &__pag {
-    margin-top: 8rem;
-
-    span {
-      cursor: pointer;
-      padding: 0.4rem;
-      margin: 0 0.8rem;
-
-      @include hoverOpacity();
     }
   }
 }

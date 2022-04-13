@@ -1,17 +1,23 @@
-import categoryImg from "../../../assets/images/product-1.png";
+import { Link } from "react-router-dom";
 
 import "./category-card.scss";
 import { Arrow } from "../../visual-elements/arrow/Arrow";
 
-export const CategoryCard = () => {
+interface props {
+  text: string;
+  img: string;
+  link: string;
+}
+
+export const CategoryCard = ({ text, img, link }: props) => {
   return (
-    <div className="category-card">
+    <Link to={link} className="category-card">
       <div className="category-card__img">
-        <img src={categoryImg} alt="category" />
+        <img src={img} alt="category" />
       </div>
       <h3 className="fs-m fw-bold">
-        Test asd <Arrow fontSize="fs-m"></Arrow>
+        {text} <Arrow fontSize="fs-m"></Arrow>
       </h3>
-    </div>
+    </Link>
   );
 };

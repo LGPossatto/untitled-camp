@@ -1,0 +1,13 @@
+@import "../../assets/styles/effects";
+
+.pagination {
+  margin-top: 8rem;
+
+  > a {
+    cursor: pointer;
+    padding: 0.4rem;
+    margin: 0 0.8rem;
+
+    @include hoverOpacity();
+  }
+}

@@ -37,7 +37,15 @@
   }
 
   > h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
     margin: 1.2rem 0 0.4rem;
+    text-transform: capitalize;
   }
 
   > span {

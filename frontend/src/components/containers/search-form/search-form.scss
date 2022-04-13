@@ -1,0 +1,32 @@
+@import "../../../assets/styles/breakpoints";
+
+.search-form {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  button {
+    width: max-content;
+    height: max-content;
+    margin-left: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  &__cat {
+    margin: -4rem 0 4rem;
+
+    .radio-input {
+      white-space: nowrap;
+      margin-right: 2rem;
+      margin-top: 2rem;
+    }
+
+    @include bp-mobile {
+      justify-content: space-between;
+
+      .radio-input {
+        margin-right: 0.4rem;
+        margin-left: 0.4rem;
+      }
+    }
+  }
+}

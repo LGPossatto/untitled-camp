@@ -1,23 +1,80 @@
 import { FC, useReducer } from "react";
 
 import { serverUrl } from "../../assets/utils/config";
+import { productsTypes } from "./productsTypes";
 
-import { initialState, ProductsContext } from "./productsContext";
-import { productsReducer } from "./ProductsReducer";
+import { initialState, ProductsContext } from "./ProductsContext";
+import { productsReducer } from "./productsReducer";
 
 export const ProductsProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   const getInitialProducts = async () => {
-    console.log(`${serverUrl}products/?page=1`);
     const res = await fetch(`${serverUrl}products/?page=1`);
     const data = await res.json();
 
     console.log(data);
   };
 
+  const getProducts = async (page: number | string) => {
+    if (state.pageProducts[page]) return;
+
+    const res = await fetch(`${serverUrl}products/?page=${page}`);
+    const data = await res.json();
+
+    console.log(data);
+
+    if (data.status.ok) {
+      dispatch({
+        type: productsTypes.GET_PRODUCTS,
+        payload: { page, content: data.content.payload },
+      });
+    }
+  };
+
+  const getRandomlProducts = async (quant: number) => {
+    if (state.randomProducts.length >= quant) return;
+
+    const res = await fetch(`${serverUrl}products/random/?quant=${quant}`);
+    const data = await res.json();
+
+    if (data.status.ok) {
+      dispatch({
+        type: productsTypes.GET_RANDOM_PRODUCTS,
+        payload: data.content.payload,
+      });
+    }
+  };
+
+  const searchProducts = async (page: number | string, search: string) => {
+    //if (state.pageProducts[page]) return;
+
+    console.log(`${serverUrl}products/${search}&page=${page}`);
+
+    /*     const res = await fetch(`${serverUrl}products/${search}&page=${page}`);
+    const data = await res.json();
+
+    console.log(data);
+
+    if (data.status.ok) {
+      dispatch({
+        type: productsTypes.GET_PRODUCTS,
+        payload: { page, content: data.content.payload },
+      });
+    }  */
+  };
+
+  const value = {
+    randomProducts: state.randomProducts,
+    pageProducts: state.pageProducts,
+    getInitialProducts,
+    getProducts,
+    getRandomlProducts,
+    searchProducts,
+  };
+
   return (
-    <ProductsContext.Provider value={{ getInitialProducts }}>
+    <ProductsContext.Provider value={value}>
       {children}
     </ProductsContext.Provider>
   );

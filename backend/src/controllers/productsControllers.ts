@@ -25,18 +25,17 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
 
     let findParams: any = {};
     if (category && typeof category === "string") {
-      const formatedCategory = category.split("+").join(" ");
-      findParams.category = formatedCategory;
+      const formatedCategory = category.split("+").join(" ").split(",");
+
+      findParams.category = { $all: formatedCategory };
     }
 
     const pageNum = parseInt(page);
-    const productsSkip = (pageNum - 1) * 9;
+    const productsSkip = (pageNum - 1) * 8;
     const products = await productsModel
       .find(findParams)
       .skip(productsSkip)
-      .limit(9);
-
-    console.log("ok", products);
+      .limit(8);
 
     sendJson(res, 200, `Page ${pageNum} products.`, products);
   } catch (err) {
