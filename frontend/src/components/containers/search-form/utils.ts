@@ -30,6 +30,4 @@ export const handleSubmit = (
   e.preventDefault();
 
   navigate(`/shop/1?category=${search.categories.join(",")}`);
-
-  console.log("ok shop search");
 };

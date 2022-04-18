@@ -1,5 +1,6 @@
 import { FC, useReducer } from "react";
 
+import { removeSymbols } from "../../assets/utils/removeSymbols";
 import { serverUrl } from "../../assets/utils/config";
 import { productsTypes } from "./productsTypes";
 
@@ -21,8 +22,6 @@ export const ProductsProvider: FC = ({ children }) => {
 
     const res = await fetch(`${serverUrl}products/?page=${page}`);
     const data = await res.json();
-
-    console.log(data);
 
     if (data.status.ok) {
       dispatch({
@@ -47,26 +46,31 @@ export const ProductsProvider: FC = ({ children }) => {
   };
 
   const searchProducts = async (page: number | string, search: string) => {
-    //if (state.pageProducts[page]) return;
+    if (
+      state.categoryProducts[removeSymbols(search)] &&
+      state.categoryProducts[removeSymbols(search)][page]
+    )
+      return;
 
-    console.log(`${serverUrl}products/${search}&page=${page}`);
-
-    /*     const res = await fetch(`${serverUrl}products/${search}&page=${page}`);
+    const res = await fetch(`${serverUrl}products/${search}&page=${page}`);
     const data = await res.json();
-
-    console.log(data);
 
     if (data.status.ok) {
       dispatch({
-        type: productsTypes.GET_PRODUCTS,
-        payload: { page, content: data.content.payload },
+        type: productsTypes.SEARCH_PRODUCTS,
+        payload: {
+          page,
+          content: data.content.payload,
+          tags: removeSymbols(search),
+        },
       });
-    }  */
+    }
   };
 
   const value = {
     randomProducts: state.randomProducts,
     pageProducts: state.pageProducts,
+    categoryProducts: state.categoryProducts,
     getInitialProducts,
     getProducts,
     getRandomlProducts,

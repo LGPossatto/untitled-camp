@@ -15,6 +15,7 @@ export interface Iproduct {
 export interface IProducts {
   randomProducts: Iproduct[];
   pageProducts: { [key: string]: Iproduct[] };
+  categoryProducts: { [key: string]: { [key: string]: Iproduct[] } };
   getInitialProducts: () => void;
   getProducts: (page: number | string) => void;
   getRandomlProducts: (quant: number) => void;
@@ -24,6 +25,7 @@ export interface IProducts {
 export const initialState = {
   randomProducts: [],
   pageProducts: {},
+  categoryProducts: {},
   getInitialProducts: () => {},
   getProducts: (page: number | string) => {},
   getRandomlProducts: (quant: number) => {},

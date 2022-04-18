@@ -92,6 +92,4 @@ export const handleSubmit = async (
   }
 
   setValues({ ...values, errorMsg: newErrorMsg });
-
-  console.log("ok");
 };

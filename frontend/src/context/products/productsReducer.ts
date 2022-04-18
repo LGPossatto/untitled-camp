@@ -16,6 +16,21 @@ export const productsReducer = (
           [action.payload.page]: [...action.payload.content],
         },
       };
+    case productsTypes.SEARCH_PRODUCTS:
+      const newCategoryProd = { ...state.categoryProducts };
+
+      if (!state.categoryProducts[action.payload.tags]) {
+        newCategoryProd[action.payload.tags] = {};
+      }
+
+      newCategoryProd[action.payload.tags][action.payload.page] = [
+        ...action.payload.content,
+      ];
+
+      return {
+        ...state,
+        categoryProducts: newCategoryProd,
+      };
     default:
       return state;
   }
