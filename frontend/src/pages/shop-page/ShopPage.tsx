@@ -9,6 +9,7 @@ import { SearchForm } from "../../components/containers/search-form/SearchForm";
 import { Spinner } from "../../components/visual-elements/spinner/Spinner";
 import { ProductCard } from "../../components/cards/product-card/ProductCard";
 import { Pagination } from "../../components/pagination/Pagination";
+import { EmptyPage } from "../empty-page/EmptyPage";
 
 export const ShopPage = () => {
   const { pageProducts, categoryProducts, getProducts, searchProducts } =
@@ -32,6 +33,10 @@ export const ShopPage = () => {
       return pageProducts[id];
     }
   };
+
+  if (checkCat(id!) && checkCat(id!).length < 1) {
+    return <EmptyPage></EmptyPage>;
+  }
 
   return (
     <div className="shop-page container">
