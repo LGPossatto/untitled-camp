@@ -38,7 +38,7 @@ export const ShopPage = () => {
 
       if (!categoryProducts[removeSymbols(catagories)]) return [];
       return categoryProducts[removeSymbols(catagories)][id];
-    } else if (field.length > 0) {
+    } else if (field && field.length > 0) {
       if (!fieldProducts) return [];
       return fieldProducts[id];
     } else {

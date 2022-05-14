@@ -9,7 +9,7 @@ import { sendJson } from "../utils/sendJson";
 // @access  Public
 export const getProducts: crudFunctionType = async (req, res, next) => {
   try {
-    const { page, category } = req.query;
+    const { page, category, field } = req.query;
 
     if (!page) {
       res.status(400);
@@ -28,6 +28,10 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
       const formatedCategory = category.split("+").join(" ").split(",");
 
       findParams.category = { $all: formatedCategory };
+    }
+
+    if (field && typeof category === "string") {
+      findParams.name = { $regex: new RegExp(field as string, "i") };
     }
 
     const pageNum = parseInt(page);
