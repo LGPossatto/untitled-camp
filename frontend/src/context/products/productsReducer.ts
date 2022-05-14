@@ -31,6 +31,24 @@ export const productsReducer = (
         ...state,
         categoryProducts: newCategoryProd,
       };
+    case productsTypes.SEARCH_WITH_FIELD_PRODUCTS:
+      let newFieldProducts = {};
+
+      if (action.payload.page === "1") {
+        newFieldProducts = {
+          [action.payload.page]: [...action.payload.content],
+        };
+      } else {
+        newFieldProducts = {
+          ...state.fieldProducts,
+          [action.payload.page]: [...action.payload.content],
+        };
+      }
+
+      return {
+        ...state,
+        fieldProducts: newFieldProducts,
+      };
     default:
       return state;
   }

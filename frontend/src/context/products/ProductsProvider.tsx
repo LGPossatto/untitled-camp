@@ -46,24 +46,41 @@ export const ProductsProvider: FC = ({ children }) => {
   };
 
   const searchProducts = async (page: number | string, search: string) => {
+    const field = search.split("&")[0].split("=")[1];
+    const categories = search.split("&")[1];
+
     if (
-      state.categoryProducts[removeSymbols(search)] &&
-      state.categoryProducts[removeSymbols(search)][page]
+      state.categoryProducts[removeSymbols(categories)] &&
+      state.categoryProducts[removeSymbols(categories)][page] &&
+      field.length <= 0
     )
       return;
 
-    const res = await fetch(`${serverUrl}products/${search}&page=${page}`);
+    const res = await fetch(
+      `${serverUrl}products/?field=${field}&${categories}&page=${page}`
+    );
     const data = await res.json();
 
     if (data.status.ok) {
-      dispatch({
-        type: productsTypes.SEARCH_PRODUCTS,
-        payload: {
-          page,
-          content: data.content.payload,
-          tags: removeSymbols(search),
-        },
-      });
+      if (field.length > 0) {
+        dispatch({
+          type: productsTypes.SEARCH_WITH_FIELD_PRODUCTS,
+          payload: {
+            page,
+            content: data.content.payload,
+            tags: removeSymbols(categories),
+          },
+        });
+      } else {
+        dispatch({
+          type: productsTypes.SEARCH_PRODUCTS,
+          payload: {
+            page,
+            content: data.content.payload,
+            tags: removeSymbols(categories),
+          },
+        });
+      }
     }
   };
 
@@ -71,6 +88,7 @@ export const ProductsProvider: FC = ({ children }) => {
     randomProducts: state.randomProducts,
     pageProducts: state.pageProducts,
     categoryProducts: state.categoryProducts,
+    fieldProducts: state.fieldProducts,
     getInitialProducts,
     getProducts,
     getRandomlProducts,

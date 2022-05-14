@@ -12,14 +12,22 @@ import { IconLink } from "../links/icon-link/IconLink";
 export const Pagination = () => {
   const { id } = useParams();
   const location = useLocation();
-  const { categoryProducts, pageProducts } = useContext(ProductsContext);
+  const { categoryProducts, pageProducts, fieldProducts } =
+    useContext(ProductsContext);
 
   const checkProducts = (id: number) => {
-    if (location.search.length > 10) {
+    const catagories = location.search.split("&")[1];
+    const field = location.search.split("&")[0].split("=")[1];
+
+    if (location.search.length > 17 && !field) {
       return (
-        categoryProducts[removeSymbols(location.search)] &&
-        categoryProducts[removeSymbols(location.search)][id] &&
-        categoryProducts[removeSymbols(location.search)][id].length >= 8
+        categoryProducts[removeSymbols(catagories)] &&
+        categoryProducts[removeSymbols(catagories)][id] &&
+        categoryProducts[removeSymbols(catagories)][id].length >= 8
+      );
+    } else if (field) {
+      return (
+        fieldProducts && fieldProducts[id] && fieldProducts[id].length >= 8
       );
     }
 

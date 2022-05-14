@@ -12,13 +12,18 @@ import { Pagination } from "../../components/pagination/Pagination";
 import { EmptyPage } from "../empty-page/EmptyPage";
 
 export const ShopPage = () => {
-  const { pageProducts, categoryProducts, getProducts, searchProducts } =
-    useContext(ProductsContext);
+  const {
+    pageProducts,
+    categoryProducts,
+    fieldProducts,
+    getProducts,
+    searchProducts,
+  } = useContext(ProductsContext);
   const { id } = useParams();
   const location = useLocation();
 
   useEffect(() => {
-    if (location.search && location.search.length > 10) {
+    if (location.search && location.search.length > 17) {
       searchProducts(id!, location.search);
     } else {
       getProducts(id!);
@@ -26,9 +31,16 @@ export const ShopPage = () => {
   }, [id, location.search]);
 
   const checkCat = (id: string) => {
-    if (location.search && location.search.length > 10) {
-      if (!categoryProducts[removeSymbols(location.search)]) return [];
-      return categoryProducts[removeSymbols(location.search)][id];
+    const field = location.search.split("&")[0].split("=")[1];
+
+    if (location.search && location.search.length > 17 && !field) {
+      const catagories = location.search.split("&")[1];
+
+      if (!categoryProducts[removeSymbols(catagories)]) return [];
+      return categoryProducts[removeSymbols(catagories)][id];
+    } else if (field.length > 0) {
+      if (!fieldProducts) return [];
+      return fieldProducts[id];
     } else {
       return pageProducts[id];
     }

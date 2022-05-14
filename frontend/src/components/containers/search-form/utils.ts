@@ -29,5 +29,7 @@ export const handleSubmit = (
 ) => {
   e.preventDefault();
 
-  navigate(`/shop/1?category=${search.categories.join(",")}`);
+  navigate(
+    `/shop/1?field=${search.field}&category=${search.categories.join(",")}`
+  );
 };
