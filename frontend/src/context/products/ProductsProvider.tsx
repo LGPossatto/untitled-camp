@@ -17,6 +17,18 @@ export const ProductsProvider: FC = ({ children }) => {
     console.log(data);
   };
 
+  const getProductById = async (id: number | string) => {
+    if (state.singleProduct && state.singleProduct._id === id) return;
+
+    const res = await fetch(`${serverUrl}products/${id}`);
+    const data = await res.json();
+
+    dispatch({
+      type: productsTypes.GET_SINGLE_PRODUCT,
+      payload: data.content.payload,
+    });
+  };
+
   const getProducts = async (page: number | string) => {
     if (state.pageProducts[page]) return;
 
@@ -86,6 +98,7 @@ export const ProductsProvider: FC = ({ children }) => {
 
   const value = {
     randomProducts: state.randomProducts,
+    singleProduct: state.singleProduct,
     pageProducts: state.pageProducts,
     categoryProducts: state.categoryProducts,
     fieldProducts: state.fieldProducts,
@@ -93,6 +106,7 @@ export const ProductsProvider: FC = ({ children }) => {
     getProducts,
     getRandomlProducts,
     searchProducts,
+    getProductById,
   };
 
   return (

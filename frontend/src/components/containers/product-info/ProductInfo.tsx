@@ -1,3 +1,7 @@
+import { useContext } from "react";
+
+import { ProductsContext } from "../../../context/products/ProductsContext";
+
 import "./product-info.scss";
 
 const data = {
@@ -16,11 +20,15 @@ const data = {
 };
 
 export const ProductInfo = () => {
+  const { singleProduct } = useContext(ProductsContext);
+  const { fetures, content } = singleProduct!;
+  const cont = content.split(". ");
+
   return (
     <section className="product-info container flex jc-sb">
       <div className="product-info__features">
         <h2 className="fs-l">Fetures</h2>
-        {data.fetures.map((paragraph, i) => (
+        {fetures.map((paragraph, i) => (
           <p key={i} className="fs-m">
             {paragraph}
           </p>
@@ -28,9 +36,13 @@ export const ProductInfo = () => {
       </div>
       <div className="product-info__content">
         <h2 className="fs-l">In The Box</h2>
-        {data.content.map((paragraph, i) => (
+        {cont.map((paragraph, i) => (
           <p key={i} className="p fs-m fc-accent fw-bold">
-            {paragraph.quant}x <span className="fs-m">{paragraph.name}</span>
+            {i}x
+            <span className="fs-m">
+              {paragraph}
+              {i < cont.length - 1 ? ";" : ""}
+            </span>
           </p>
         ))}
       </div>

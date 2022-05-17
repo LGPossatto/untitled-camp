@@ -41,7 +41,19 @@ export const getProducts: crudFunctionType = async (req, res, next) => {
       .skip(productsSkip)
       .limit(8);
 
-    sendJson(res, 200, `Page ${pageNum} products.`, products);
+    const newProducts = [];
+    for (const product of products) {
+      const newProduct = {
+        id: product._id,
+        name: product.name,
+        desc: product.desc,
+        image: product.image,
+        price: product.price,
+      };
+      newProducts.push(newProduct);
+    }
+
+    sendJson(res, 200, `Page ${pageNum} products.`, newProducts);
   } catch (err) {
     next(err);
   }
@@ -84,6 +96,25 @@ export const getRandomProducts: crudFunctionType = async (req, res, next) => {
 
     const products = await productsModel.aggregate(aggregateParams);
     sendJson(res, 200, `${quant} Random products.`, products);
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc    Get products
+// @route   GET /api/products/id
+// @access  Public
+export const getProductById: crudFunctionType = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const product = await productsModel.findById(id);
+
+    if (!product) {
+      throw new Error("Product not found.");
+    }
+
+    sendJson(res, 200, `Product: ${id}.`, product);
   } catch (err) {
     next(err);
   }

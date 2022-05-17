@@ -1,4 +1,4 @@
-import productImg from "../../../assets/images/product-1.png";
+import { useNavigate } from "react-router-dom";
 
 import { Iproduct } from "../../../context/products/ProductsContext";
 
@@ -11,6 +11,12 @@ interface props {
 }
 
 export const ProductCard = ({ product, stock = true }: props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/products/${product.id}`);
+  };
+
   return (
     <div className={`product-card ${stock ? "product-card-stock" : ""}`}>
       <div className="product-card__img">
@@ -24,7 +30,7 @@ export const ProductCard = ({ product, stock = true }: props) => {
         $ {product.price.toFixed(2)}
       </span>
       <p className="fs-sm fc-gray-dark">{product.desc}</p>
-      <CtaBtn small onClick={() => console.log("ok product btn")}>
+      <CtaBtn small onClick={handleClick}>
         More
       </CtaBtn>
     </div>

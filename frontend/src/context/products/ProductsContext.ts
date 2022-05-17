@@ -1,6 +1,14 @@
 import { createContext } from "react";
 
 export interface Iproduct {
+  id: string;
+  image: string;
+  name: string;
+  desc: string;
+  price: number;
+}
+
+export interface ISingleProduct {
   _id: string;
   image: string;
   name: string;
@@ -14,10 +22,12 @@ export interface Iproduct {
 
 export interface IProducts {
   randomProducts: Iproduct[];
+  singleProduct: ISingleProduct | null;
   pageProducts: { [key: string]: Iproduct[] };
   categoryProducts: { [key: string]: { [key: string]: Iproduct[] } };
   fieldProducts: { [key: string]: Iproduct[] };
   getInitialProducts: () => void;
+  getProductById: (id: number | string) => void;
   getProducts: (page: number | string) => void;
   getRandomlProducts: (quant: number) => void;
   searchProducts: (page: number | string, search: string) => void;
@@ -25,10 +35,12 @@ export interface IProducts {
 
 export const initialState = {
   randomProducts: [],
+  singleProduct: null,
   pageProducts: {},
   categoryProducts: {},
   fieldProducts: {},
   getInitialProducts: () => {},
+  getProductById: (id: number | string) => {},
   getProducts: (page: number | string) => {},
   getRandomlProducts: (quant: number) => {},
   searchProducts: (page: number | string, search: string) => {},

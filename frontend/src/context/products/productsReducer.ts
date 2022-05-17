@@ -8,6 +8,8 @@ export const productsReducer = (
   switch (action.type) {
     case productsTypes.GET_RANDOM_PRODUCTS:
       return { ...state, randomProducts: [...action.payload] };
+    case productsTypes.GET_SINGLE_PRODUCT:
+      return { ...state, singleProduct: action.payload };
     case productsTypes.GET_PRODUCTS:
       return {
         ...state,
