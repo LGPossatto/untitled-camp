@@ -66,16 +66,12 @@ export const signupUser: crudFunctionType = async (req, res, next) => {
     const salt = await bcrypt.genSalt();
     const encodedPassword = await bcrypt.hash(password, salt);
 
-    console.log(name, email, password);
-
     const newUser = await usersModel.create({
       name,
       email,
       password: encodedPassword,
       products: [],
     });
-
-    console.log(newUser);
 
     if (newUser) {
       const token = createJsonToken({
@@ -121,7 +117,15 @@ export const getCart: crudFunctionType = async (req, res, next) => {
 export const addProduct: crudFunctionType = async (req, res, next) => {
   try {
     const { productID } = req.params;
+    const { quant } = req.body;
     const { id } = req.user;
+
+    if (!quant || quant <= 0) {
+      res.status(400);
+      throw new Error(
+        "The body must contain the 'quant' param, and 'quant must be greater than 0."
+      );
+    }
 
     const user = (await usersModel.findById(id)) as userType;
 
@@ -137,7 +141,7 @@ export const addProduct: crudFunctionType = async (req, res, next) => {
       // check if product exist
       updatedUser = await usersModel.findByIdAndUpdate(
         id,
-        { $inc: { "products.$[el].quant": 1 } },
+        { $inc: { "products.$[el].quant": quant } },
         {
           arrayFilters: [
             { "el.product": new mongoose.Types.ObjectId(productID) },
@@ -153,7 +157,7 @@ export const addProduct: crudFunctionType = async (req, res, next) => {
           $push: {
             products: {
               product: new mongoose.Types.ObjectId(productID),
-              quant: 1,
+              quant: quant,
             },
           },
         },
@@ -173,7 +177,15 @@ export const addProduct: crudFunctionType = async (req, res, next) => {
 export const removeProduct: crudFunctionType = async (req, res, next) => {
   try {
     const { productID } = req.params;
+    const { quant } = req.body;
     const { id } = req.user;
+
+    if (!quant || quant <= 0) {
+      res.status(400);
+      throw new Error(
+        "The body must contain the 'quant' param, and 'quant must be greater than 0."
+      );
+    }
 
     const user = (await usersModel.findById(id)) as userType;
 
@@ -186,10 +198,10 @@ export const removeProduct: crudFunctionType = async (req, res, next) => {
 
     for (const product of user.products) {
       if (product.product.toString() === productID) {
-        if (product.quant > 1) {
+        if (product.quant > quant) {
           updatedUser = await usersModel.findByIdAndUpdate(
             id,
-            { $inc: { "products.$[el].quant": -1 } },
+            { $inc: { "products.$[el].quant": -quant } },
             {
               arrayFilters: [
                 { "el.product": new mongoose.Types.ObjectId(productID) },

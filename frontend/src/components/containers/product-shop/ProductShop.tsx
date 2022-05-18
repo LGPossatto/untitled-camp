@@ -1,6 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { ProductsContext } from "../../../context/products/ProductsContext";
+import { UserContext } from "../../../context/user/UserContext";
 
 import "./product-shop.scss";
 import { CountBtn } from "../../buttons/count-btn/CountBtn";
@@ -10,7 +12,20 @@ import { TextLink } from "../../links/text-link/TextLink";
 
 export const ProductShop = () => {
   const { singleProduct } = useContext(ProductsContext);
+  const { user, addToCart } = useContext(UserContext);
+  const [quant, setQuant] = useState(1);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   const { image, desc, name, price, tag } = singleProduct!;
+
+  const handleClick = () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      addToCart(id!, quant, singleProduct!);
+    }
+  };
 
   return (
     <section className="product-shop container">
@@ -25,9 +40,9 @@ export const ProductShop = () => {
           <p className="fs-m">{desc}</p>
           <p className="price fs-m fw-bold ">$ {price}</p>
           <div className="info-btns flex ai-c">
-            <CountBtn></CountBtn>
-            <CtaBtn small onClick={() => console.log("ok product shop")}>
-              test asd
+            <CountBtn quant={quant} setQuant={setQuant}></CountBtn>
+            <CtaBtn small onClick={handleClick}>
+              Add to Cart
             </CtaBtn>
           </div>
         </div>

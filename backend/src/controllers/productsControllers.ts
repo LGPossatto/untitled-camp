@@ -111,6 +111,7 @@ export const getProductById: crudFunctionType = async (req, res, next) => {
     const product = await productsModel.findById(id);
 
     if (!product) {
+      res.status(404);
       throw new Error("Product not found.");
     }
 

@@ -18,6 +18,8 @@ const usersSchema = new mongoose.Schema(
           quant: { type: Number, required: true },
         },
       ],
+      unique: false,
+      sparce: true,
       required: true,
     },
   },

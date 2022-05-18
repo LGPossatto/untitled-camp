@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { ISingleProduct } from "../products/ProductsContext";
 
 export interface IUser {
   isLoading: boolean;
@@ -10,23 +11,15 @@ export interface IUser {
     token: string;
   } | null;
   cart: {
-    product: {
-      id: string;
-      image: string;
-      price: number;
-      tag: string;
-      category: string[];
-      name: string;
-      desc: string;
-      fetures: string[];
-      content: string;
-    };
+    product: ISingleProduct;
     quant: number;
   }[];
   loginUser: (email: string, password: string) => void;
   createUser: (name: string, email: string, password: string) => void;
   logoutUser: () => void;
   getLocalUser: () => void;
+  addToCart: (id: string, quant: number, product: ISingleProduct) => void;
+  removeFromCart: (id: string, quant: number, product: ISingleProduct) => void;
 }
 
 export const initialState = {
@@ -38,6 +31,8 @@ export const initialState = {
   createUser: (name: string, email: string, password: string) => {},
   logoutUser: () => {},
   getLocalUser: () => {},
+  addToCart: (id: string, quant: number, product: ISingleProduct) => {},
+  removeFromCart: (id: string, quant: number, product: ISingleProduct) => {},
 };
 
 export const UserContext = createContext<IUser>(initialState);

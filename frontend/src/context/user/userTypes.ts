@@ -4,4 +4,5 @@ export const userTypes = {
   CLEAR_ERROR_MSG: "CLEAR_ERROR_MSG",
   LOGIN_USER: "LOGIN_USER",
   LOGOUT_USER: "LOGOUT_USER",
+  ADD_TO_CART: "ADD_TO_CART",
 };
