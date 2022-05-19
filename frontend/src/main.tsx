@@ -9,14 +9,12 @@ import "./assets/styles/globals.scss";
 import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <ProductsProvider>
-          <App />
-        </ProductsProvider>
-      </UserProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <UserProvider>
+      <ProductsProvider>
+        <App />
+      </ProductsProvider>
+    </UserProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );

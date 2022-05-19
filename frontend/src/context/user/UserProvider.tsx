@@ -15,19 +15,30 @@ export const UserProvider: FC = ({ children }) => {
     dispatch({ type: userTypes.LOADING });
   };
 
-  const getLocalUser = () => {
+  const getLocalUser = async () => {
     const user = localStorage.getItem("user");
-    const cart = localStorage.getItem("cart");
 
     if (user) {
       const payload = { ...JSON.parse(user) };
 
-      if (cart) payload.products = JSON.parse(cart);
-
-      dispatch({
-        type: userTypes.LOGIN_USER,
-        payload,
+      const res = await fetch(`${serverUrl}users/cart`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${payload.token}`,
+        },
       });
+      const data = await res.json();
+
+      if (data.status.ok) {
+        payload.products = data.content.payload;
+
+        dispatch({
+          type: userTypes.LOGIN_USER,
+          payload,
+        });
+      }
     }
   };
 
@@ -107,7 +118,30 @@ export const UserProvider: FC = ({ children }) => {
     }
   };
 
-  const removeFromCart = async (id: string, quant: number) => {};
+  const removeFromCart = async (
+    id: string,
+    quant: number,
+    product: ISingleProduct
+  ) => {
+    const res = await fetch(`${serverUrl}users/cart/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${state.user.token}`,
+      },
+      body: JSON.stringify({ quant: quant }),
+    });
+
+    const data = await res.json();
+
+    if (data.status.ok) {
+      dispatch({
+        type: userTypes.REMOVE_FROM_CART,
+        payload: { id: data.content.payload, quant, product },
+      });
+    }
+  };
 
   const value = {
     isLoading: state.isLoading,

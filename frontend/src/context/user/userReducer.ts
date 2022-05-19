@@ -17,12 +17,10 @@ export const userReducer = (
       delete user["products"];
 
       localStorage.setItem("user", JSON.stringify(action.payload));
-      localStorage.setItem("cart", JSON.stringify(action.payload.products));
 
       return { ...state, user, cart: [...action.payload.products] };
     case userTypes.LOGOUT_USER:
       localStorage.removeItem("user");
-      localStorage.removeItem("cart");
 
       return { ...state, user: null };
     case userTypes.ADD_TO_CART:
@@ -43,6 +41,16 @@ export const userReducer = (
         });
 
       return { ...state, cart: cartItems };
+    case userTypes.REMOVE_FROM_CART:
+      const removedCartItems = state.cart.filter((item) => {
+        if (item.product._id === action.payload.id) {
+          item.quant = item.quant - action.payload.quant;
+        }
+
+        if (item.quant > 0) return item;
+      });
+
+      return { ...state, cart: removedCartItems };
     default:
       return state;
   }

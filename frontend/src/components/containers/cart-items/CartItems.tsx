@@ -1,3 +1,7 @@
+import { useContext } from "react";
+
+import { UserContext } from "../../../context/user/UserContext";
+
 import productImg from "../../../assets/images/product-1.png";
 
 import "./cart-items.scss";
@@ -5,28 +9,15 @@ import { CartItem } from "../../cards/cart-item/CartItem";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 
 export const CartItems = () => {
+  const { cart } = useContext(UserContext);
+
   return (
     <section className="cart-items">
       <h3 className="fs-l">Summary</h3>
       <div className="cart-items__products">
-        <CartItem
-          img={productImg}
-          name="test asd"
-          price={1299}
-          quant={4}
-        ></CartItem>
-        <CartItem
-          img={productImg}
-          name="test fgh"
-          price={128}
-          quant={2}
-        ></CartItem>
-        <CartItem
-          img={productImg}
-          name="test jkl"
-          price={19}
-          quant={1}
-        ></CartItem>
+        {cart.map((item) => (
+          <CartItem product={item.product} quant={item.quant}></CartItem>
+        ))}
       </div>
       <div className="cart-items__sums">
         <p className="fs-m fc-gray-dark">
