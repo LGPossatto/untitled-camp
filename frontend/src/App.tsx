@@ -20,6 +20,7 @@ import { ProductPage } from "./pages/product-page/ProductPage";
 
 import { CheckoutPage } from "./pages/checkout-page/CheckoutPage";
 import { CartPage } from "./pages/cart-page/CartPage";
+import Thankyou from "./pages/thankyou/Thankyou";
 
 function App() {
   const { user, cart, getLocalUser } = useContext(UserContext);
@@ -70,6 +71,7 @@ function App() {
               )
             }
           ></Route>
+          <Route path="/thankyou" element={<Thankyou></Thankyou>}></Route>
           <Route path="/shop/:id" element={<ShopPage></ShopPage>}></Route>
           <Route
             path="/products/:id"

@@ -1,0 +1,21 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/effects";
+
+.enpty-cart {
+  overflow: hidden;
+
+  padding: 3.2rem;
+  border-radius: 0.4rem;
+  background-color: $color-white;
+
+  @include boxShadow();
+
+  h2 {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  button {
+    margin: 0 auto;
+  }
+}

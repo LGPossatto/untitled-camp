@@ -1,3 +1,5 @@
+import { emailRegex } from "../../../assets/utils/regex";
+
 export interface ILogin {
   email: string;
   password: string;
@@ -36,6 +38,11 @@ export const handleSubmit = async (
       //@ts-ignore
       newErrorMsg[key] = "Please fill every field";
     }
+  }
+
+  if (!emailRegex.test(values.email)) {
+    hasError = true;
+    newErrorMsg.email = "Please provide a valid email";
   }
 
   setValues({ ...values, errorMsg: newErrorMsg });

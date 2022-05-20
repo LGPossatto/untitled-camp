@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { handleSubmit, checkoutValues, ICheckout } from "./utils";
 
@@ -10,6 +11,7 @@ import { RadioInput } from "../../inputs/radio-input/RadioInput";
 
 export const Checkout = () => {
   const [state, setState] = useState<ICheckout>(checkoutValues);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -18,7 +20,7 @@ export const Checkout = () => {
   return (
     <form
       className="checkout"
-      onSubmit={(e) => handleSubmit(e, state, setState)}
+      onSubmit={(e) => handleSubmit(e, state, setState, navigate)}
     >
       <h2 className="fs-xl">Checkout</h2>
       <div className="checkout__billing">
