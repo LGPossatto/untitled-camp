@@ -1,4 +1,4 @@
-import cardImg from "../../../assets/images/placeholder-2.jpg";
+import cardImg from "../../../assets/images/placeholder-4.jpg";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
 
 import "./img-card.scss";
@@ -10,13 +10,15 @@ export const ImgCard = () => {
         <img src={cardImg} alt="product" />
       </div>
       <div className="img-card__info">
-        <h2 className="fs-l">Test asd</h2>
+        <h2 className="fs-l">Want Some Cake?</h2>
         <CtaBtn
           small
           color="transparent"
-          onClick={() => console.log("ok promotion card")}
+          onClick={() => {
+            window.alert("There is no cake :(");
+          }}
         >
-          Test asd
+          Yeah!
         </CtaBtn>
       </div>
     </div>

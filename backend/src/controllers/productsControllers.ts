@@ -95,7 +95,19 @@ export const getRandomProducts: crudFunctionType = async (req, res, next) => {
     aggregateParams.push({ $sample: { size: parseInt(quant) } });
 
     const products = await productsModel.aggregate(aggregateParams);
-    sendJson(res, 200, `${quant} Random products.`, products);
+    const newProducts = [];
+    for (const product of products) {
+      const newProduct = {
+        id: product._id,
+        name: product.name,
+        desc: product.desc,
+        image: product.image,
+        price: product.price,
+      };
+      newProducts.push(newProduct);
+    }
+
+    sendJson(res, 200, `${quant} Random products.`, newProducts);
   } catch (err) {
     next(err);
   }

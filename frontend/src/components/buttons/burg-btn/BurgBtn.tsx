@@ -17,7 +17,7 @@ export const BurgBtn = ({ classes }: props) => {
       <button className="fs-l fc-reverse" onClick={() => setActive(!active)}>
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <BurgMenu active={active}></BurgMenu>
+      <BurgMenu active={active} setActive={setActive}></BurgMenu>
     </div>
   );
 };

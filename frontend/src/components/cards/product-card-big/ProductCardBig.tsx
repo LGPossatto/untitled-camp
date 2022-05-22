@@ -10,7 +10,7 @@ export const ProductCardBig = () => {
         <img src={cardImg} alt="product" />
       </div>
       <div className="product-card-big__info flex-1">
-        <h2 className="fs-l fc-reverse">Test asd</h2>
+        <h2 className="fs-l fc-reverse">Motocross Equipment</h2>
         <p className="fs-m fc-reverse">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad explicabo
           eum optio iure dicta. Commodi tenetur porro labore facere laboriosam
@@ -22,7 +22,7 @@ export const ProductCardBig = () => {
           color="black"
           onClick={() => console.log("ok product button")}
         >
-          Test asd
+          See More
         </CtaBtn>
       </div>
     </div>

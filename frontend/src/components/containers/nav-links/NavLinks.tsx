@@ -10,18 +10,33 @@ interface props {
   classes?: string;
   vertical?: boolean;
   color?: "fc-reverse";
+  onLinkClick?: Function;
 }
 
-export const NavLinks = ({ classes, vertical, color }: props) => {
+export const NavLinks = ({ classes, vertical, color, onLinkClick }: props) => {
   const { user } = useContext(UserContext);
   const { pathname: path } = useLocation();
 
   const accountLink = () => {
     switch (path) {
       case "/login":
-        return <NavLink href="/signup" text="Signup" color={color}></NavLink>;
+        return (
+          <NavLink
+            onClick={onLinkClick}
+            href="/signup"
+            text="Signup"
+            color={color}
+          ></NavLink>
+        );
       default:
-        return <NavLink href="/login" text="Login" color={color}></NavLink>;
+        return (
+          <NavLink
+            onClick={onLinkClick}
+            href="/login"
+            text="Login"
+            color={color}
+          ></NavLink>
+        );
     }
   };
 
@@ -32,17 +47,37 @@ export const NavLinks = ({ classes, vertical, color }: props) => {
       }`}
     >
       <li>
-        <NavLink href="/" text="Home" color={color}></NavLink>
+        <NavLink
+          onClick={onLinkClick}
+          href="/"
+          text="Home"
+          color={color}
+        ></NavLink>
       </li>
       <li>
-        <NavLink href="/shop/1" text="Shop" color={color}></NavLink>
+        <NavLink
+          onClick={onLinkClick}
+          href="/shop/1"
+          text="Shop"
+          color={color}
+        ></NavLink>
       </li>
       <li>
-        <NavLink href="/about" text="About" color={color}></NavLink>
+        <NavLink
+          onClick={onLinkClick}
+          href="/about"
+          text="About"
+          color={color}
+        ></NavLink>
       </li>
       <li>
         {user ? (
-          <NavLink href="/profile" text="Profile" color={color}></NavLink>
+          <NavLink
+            onClick={onLinkClick}
+            href="/profile"
+            text="Profile"
+            color={color}
+          ></NavLink>
         ) : (
           accountLink()
         )}

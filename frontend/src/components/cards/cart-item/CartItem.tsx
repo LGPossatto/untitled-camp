@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ISingleProduct } from "../../../context/products/ProductsContext";
 import { UserContext } from "../../../context/user/UserContext";
 
+import { productsImgs } from "../../../assets/utils/productsImgs";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import "./cart-item.scss";
@@ -34,7 +35,7 @@ export const CartItem = ({ product, quant }: props) => {
     <div className="cart-item flex jc-sb ai-c">
       <div className="flex ai-c">
         <div className="cart-item__img">
-          <img src={`/src/assets/images/product-${image}.png`} alt="product" />
+          <img src={productsImgs[parseInt(image)]} alt="product" />
         </div>
         <div className="cart-item__name-price">
           <h4 className="fs-m">{name}</h4>

@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ProductsContext } from "../../../context/products/ProductsContext";
 import { UserContext } from "../../../context/user/UserContext";
 
+import { productsImgs } from "../../../assets/utils/productsImgs";
+
 import "./product-shop.scss";
 import { CountBtn } from "../../buttons/count-btn/CountBtn";
 import { CtaBtn } from "../../buttons/cta-btn/CtaBtn";
@@ -32,7 +34,7 @@ export const ProductShop = () => {
       <TextLink link="/" text="Go Back"></TextLink>
       <div className="flex jc-sb ai-c">
         <div className="product-shop__img flex-1">
-          <img src={`/src/assets/images/product-${image}.png`} alt="product" />
+          <img src={productsImgs[parseInt(image)]} alt="product" />
         </div>
         <div className="product-shop__info flex-1">
           <Tag text={tag} fontSize="fs-sm" />
