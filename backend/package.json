@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start" : "node /dist/app.js",
     "s": "nodemon ./dist/app.js",
     "w": "tsc -w"
   },
