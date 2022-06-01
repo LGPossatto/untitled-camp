@@ -39,7 +39,9 @@ export const CartItem = ({ product, quant }: props) => {
         </div>
         <div className="cart-item__name-price">
           <h4 className="fs-m">{name}</h4>
-          <span className="fs-m fc-gray-dark fw-bold">$ {price}</span>
+          <span className="fs-m fc-gray-dark fw-bold">
+            $ {price.toFixed(2)}
+          </span>
         </div>
       </div>
       <div className="cart-item__btns flex ai-c">

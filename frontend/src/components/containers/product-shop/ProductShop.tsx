@@ -40,7 +40,7 @@ export const ProductShop = () => {
           <Tag text={tag} fontSize="fs-sm" />
           <h2 className="fs-l">{name}</h2>
           <p className="fs-m">{desc}</p>
-          <p className="price fs-m fw-bold ">$ {price}</p>
+          <p className="price fs-m fw-bold ">$ {price.toFixed(2)}</p>
           <div className="info-btns flex ai-c">
             <CountBtn quant={quant} setQuant={setQuant}></CountBtn>
             <CtaBtn small onClick={handleClick}>
